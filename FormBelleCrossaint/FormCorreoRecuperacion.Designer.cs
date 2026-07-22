@@ -30,11 +30,11 @@
         {
             panelLogin = new Panel();
             lblTitulo = new Label();
-            btnLogin = new Button();
+            btnAceptar = new Button();
             lblContrasena = new Label();
-            txtContrasena = new TextBox();
-            lblUsuario = new Label();
-            button1 = new Button();
+            txtCorreo = new TextBox();
+            lblDescripcion = new Label();
+            lblVolverlInicio = new Label();
             panelLogin.SuspendLayout();
             SuspendLayout();
             // 
@@ -42,12 +42,12 @@
             // 
             panelLogin.BackColor = Color.WhiteSmoke;
             panelLogin.BorderStyle = BorderStyle.FixedSingle;
-            panelLogin.Controls.Add(button1);
+            panelLogin.Controls.Add(lblVolverlInicio);
             panelLogin.Controls.Add(lblTitulo);
-            panelLogin.Controls.Add(btnLogin);
+            panelLogin.Controls.Add(btnAceptar);
             panelLogin.Controls.Add(lblContrasena);
-            panelLogin.Controls.Add(txtContrasena);
-            panelLogin.Controls.Add(lblUsuario);
+            panelLogin.Controls.Add(txtCorreo);
+            panelLogin.Controls.Add(lblDescripcion);
             panelLogin.Location = new Point(196, 32);
             panelLogin.Name = "panelLogin";
             panelLogin.Size = new Size(409, 290);
@@ -66,16 +66,16 @@
             lblTitulo.Text = "¿Olvidaste tu contraseña?";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // btnLogin
+            // btnAceptar
             // 
-            btnLogin.BackColor = Color.FromArgb(74, 81, 60);
-            btnLogin.ForeColor = Color.White;
-            btnLogin.Location = new Point(215, 219);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(158, 34);
-            btnLogin.TabIndex = 3;
-            btnLogin.Text = "Login";
-            btnLogin.UseVisualStyleBackColor = false;
+            btnAceptar.BackColor = Color.FromArgb(74, 81, 60);
+            btnAceptar.ForeColor = Color.White;
+            btnAceptar.Location = new Point(215, 219);
+            btnAceptar.Name = "btnAceptar";
+            btnAceptar.Size = new Size(158, 34);
+            btnAceptar.TabIndex = 3;
+            btnAceptar.Text = "Aceptar";
+            btnAceptar.UseVisualStyleBackColor = false;
             // 
             // lblContrasena
             // 
@@ -86,38 +86,38 @@
             lblContrasena.TabIndex = 3;
             lblContrasena.Text = "Correo:";
             // 
-            // txtContrasena
+            // txtCorreo
             // 
-            txtContrasena.BorderStyle = BorderStyle.FixedSingle;
-            txtContrasena.ForeColor = SystemColors.WindowFrame;
-            txtContrasena.Location = new Point(31, 137);
-            txtContrasena.Name = "txtContrasena";
-            txtContrasena.Size = new Size(342, 27);
-            txtContrasena.TabIndex = 2;
-            txtContrasena.UseSystemPasswordChar = true;
+            txtCorreo.BorderStyle = BorderStyle.FixedSingle;
+            txtCorreo.ForeColor = SystemColors.WindowFrame;
+            txtCorreo.Location = new Point(31, 137);
+            txtCorreo.Name = "txtCorreo";
+            txtCorreo.Size = new Size(342, 27);
+            txtCorreo.TabIndex = 2;
+            txtCorreo.UseSystemPasswordChar = true;
             // 
-            // lblUsuario
+            // lblDescripcion
             // 
-            lblUsuario.AutoSize = true;
-            lblUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblUsuario.ForeColor = SystemColors.ControlDark;
-            lblUsuario.Location = new Point(55, 57);
-            lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(294, 20);
-            lblUsuario.TabIndex = 2;
-            lblUsuario.Text = "Ingresa tu usuario para recuperar contraseña";
-            lblUsuario.TextAlign = ContentAlignment.MiddleCenter;
+            lblDescripcion.AutoSize = true;
+            lblDescripcion.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            lblDescripcion.ForeColor = SystemColors.ControlDark;
+            lblDescripcion.Location = new Point(55, 57);
+            lblDescripcion.Name = "lblDescripcion";
+            lblDescripcion.Size = new Size(294, 20);
+            lblDescripcion.TabIndex = 2;
+            lblDescripcion.Text = "Ingresa tu usuario para recuperar contraseña";
+            lblDescripcion.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // lblVolverlInicio
             // 
-            button1.BackColor = Color.Silver;
-            button1.ForeColor = Color.FromArgb(64, 64, 64);
-            button1.Location = new Point(31, 219);
-            button1.Name = "button1";
-            button1.Size = new Size(158, 34);
-            button1.TabIndex = 4;
-            button1.Text = "Volver";
-            button1.UseVisualStyleBackColor = false;
+            lblVolverlInicio.AutoSize = true;
+            lblVolverlInicio.Font = new Font("Segoe UI", 9F, FontStyle.Italic);
+            lblVolverlInicio.ForeColor = Color.FromArgb(74, 81, 60);
+            lblVolverlInicio.Location = new Point(29, 229);
+            lblVolverlInicio.Name = "lblVolverlInicio";
+            lblVolverlInicio.Size = new Size(147, 20);
+            lblVolverlInicio.TabIndex = 6;
+            lblVolverlInicio.Text = "Volver al inicio sesion";
             // 
             // FormCorreoRecuperacion
             // 
@@ -136,11 +136,11 @@
         #endregion
 
         private Panel panelLogin;
-        private Button button1;
         private Label lblTitulo;
-        private Button btnLogin;
+        private Button btnAceptar;
         private Label lblContrasena;
-        private TextBox txtContrasena;
-        private Label lblUsuario;
+        private TextBox txtCorreo;
+        private Label lblDescripcion;
+        private Label lblVolverlInicio;
     }
 }
