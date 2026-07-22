@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace FormBelleCrossaint
 {
-    public partial class FormCrearCuenta : Form
+    public partial class FormCorreoRecuperacion : Form
     {
-        public FormCrearCuenta()
+        public FormCorreoRecuperacion()
         {
             InitializeComponent();
         }
