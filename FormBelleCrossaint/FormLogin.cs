@@ -19,5 +19,10 @@ namespace FormBelleCrossaint
                 pVisible.Image = Image.FromFile("C:\\Users\\AnaAl\\source\\repos\\BelleCrossaint\\imagenes\\Eye open.png");
             }
         }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -41,6 +41,7 @@
             lblUsuario = new Label();
             txtUsuario = new TextBox();
             pLogo = new PictureBox();
+            maskedTextBox1 = new MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)pImagen).BeginInit();
             panelLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pVisible).BeginInit();
@@ -102,6 +103,7 @@
             // lblCrearCuenta
             // 
             lblCrearCuenta.AutoSize = true;
+            lblCrearCuenta.Font = new Font("Segoe UI", 9F, FontStyle.Italic);
             lblCrearCuenta.ForeColor = Color.FromArgb(74, 81, 60);
             lblCrearCuenta.Location = new Point(279, 396);
             lblCrearCuenta.Name = "lblCrearCuenta";
@@ -112,10 +114,11 @@
             // lblOlvidarContrasena
             // 
             lblOlvidarContrasena.AutoSize = true;
+            lblOlvidarContrasena.Font = new Font("Segoe UI", 9F, FontStyle.Italic);
             lblOlvidarContrasena.ForeColor = Color.FromArgb(74, 81, 60);
             lblOlvidarContrasena.Location = new Point(40, 396);
             lblOlvidarContrasena.Name = "lblOlvidarContrasena";
-            lblOlvidarContrasena.Size = new Size(178, 20);
+            lblOlvidarContrasena.Size = new Size(172, 20);
             lblOlvidarContrasena.TabIndex = 5;
             lblOlvidarContrasena.Text = "¿Olvidaste tu contraseña?";
             // 
@@ -176,23 +179,33 @@
             pLogo.TabIndex = 2;
             pLogo.TabStop = false;
             // 
+            // maskedTextBox1
+            // 
+            maskedTextBox1.Location = new Point(0, 0);
+            maskedTextBox1.Name = "maskedTextBox1";
+            maskedTextBox1.Size = new Size(125, 27);
+            maskedTextBox1.TabIndex = 2;
+            // 
             // FormLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1195, 649);
+            Controls.Add(maskedTextBox1);
             Controls.Add(panelLogin);
             Controls.Add(pImagen);
             Name = "FormLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
+            Load += FormLogin_Load;
             ((System.ComponentModel.ISupportInitialize)pImagen).EndInit();
             panelLogin.ResumeLayout(false);
             panelLogin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pVisible).EndInit();
             ((System.ComponentModel.ISupportInitialize)pLogo).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -209,5 +222,6 @@
         private Label lblOlvidarContrasena;
         private Label lblTitulo;
         private PictureBox pVisible;
+        private MaskedTextBox maskedTextBox1;
     }
 }
