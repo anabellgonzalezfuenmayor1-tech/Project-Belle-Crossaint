@@ -88,6 +88,7 @@
             lblInicioSesion.Size = new Size(208, 20);
             lblInicioSesion.TabIndex = 5;
             lblInicioSesion.Text = "¿Ya tienes cuenta? Inicia Sesion";
+            lblInicioSesion.Click += lblInicioSesion_Click;
             // 
             // btnCrearCuenta
             // 
@@ -139,6 +140,7 @@
             // 
             // pLogo
             // 
+            pLogo.BackColor = Color.Transparent;
             pLogo.Image = (Image)resources.GetObject("pLogo.Image");
             pLogo.Location = new Point(69, 19);
             pLogo.Name = "pLogo";
@@ -249,10 +251,11 @@
             // 
             // pictureBox2
             // 
+            pictureBox2.Dock = DockStyle.Fill;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(0, 0);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(806, 656);
+            pictureBox2.Size = new Size(800, 657);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 20;
             pictureBox2.TabStop = false;
@@ -284,6 +287,7 @@
             Controls.Add(pVisibleC);
             Controls.Add(pictureBox2);
             Name = "FormCrearCuenta";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormCrearCuenta";
             ((System.ComponentModel.ISupportInitialize)pVisibleC).EndInit();
             ((System.ComponentModel.ISupportInitialize)pLogo).EndInit();

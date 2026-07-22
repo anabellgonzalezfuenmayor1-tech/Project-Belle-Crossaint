@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPantallaPrincipal));
             PanelMenu = new Panel();
-            PanelContenido = new Panel();
-            pLogo = new PictureBox();
-            lblTitulo = new Label();
-            btnPerfil = new Button();
-            btnHistorialPedido = new Button();
             btnCerrarSesion = new Button();
+            btnHistorialPedido = new Button();
+            btnPerfil = new Button();
+            lblTitulo = new Label();
+            pLogo = new PictureBox();
+            PanelContenido = new Panel();
             PanelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pLogo).BeginInit();
             SuspendLayout();
@@ -54,48 +54,18 @@
             PanelMenu.Size = new Size(250, 450);
             PanelMenu.TabIndex = 0;
             // 
-            // PanelContenido
+            // btnCerrarSesion
             // 
-            PanelContenido.Dock = DockStyle.Fill;
-            PanelContenido.Location = new Point(250, 0);
-            PanelContenido.Name = "PanelContenido";
-            PanelContenido.Size = new Size(550, 450);
-            PanelContenido.TabIndex = 0;
-            // 
-            // pLogo
-            // 
-            pLogo.Image = (Image)resources.GetObject("pLogo.Image");
-            pLogo.Location = new Point(12, 12);
-            pLogo.Name = "pLogo";
-            pLogo.Size = new Size(73, 60);
-            pLogo.SizeMode = PictureBoxSizeMode.StretchImage;
-            pLogo.TabIndex = 3;
-            pLogo.TabStop = false;
-            // 
-            // lblTitulo
-            // 
-            lblTitulo.AutoSize = true;
-            lblTitulo.BackColor = Color.Transparent;
-            lblTitulo.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblTitulo.ForeColor = Color.FromArgb(44, 48, 51);
-            lblTitulo.Location = new Point(12, 75);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(192, 23);
-            lblTitulo.TabIndex = 4;
-            lblTitulo.Text = "Belle Crossaint Lyonnis";
-            // 
-            // btnPerfil
-            // 
-            btnPerfil.BackColor = Color.Transparent;
-            btnPerfil.FlatAppearance.BorderSize = 0;
-            btnPerfil.FlatStyle = FlatStyle.Flat;
-            btnPerfil.Location = new Point(12, 133);
-            btnPerfil.Name = "btnPerfil";
-            btnPerfil.Size = new Size(219, 29);
-            btnPerfil.TabIndex = 0;
-            btnPerfil.Text = "Perfil";
-            btnPerfil.TextAlign = ContentAlignment.MiddleLeft;
-            btnPerfil.UseVisualStyleBackColor = false;
+            btnCerrarSesion.BackColor = Color.Transparent;
+            btnCerrarSesion.FlatAppearance.BorderSize = 0;
+            btnCerrarSesion.FlatStyle = FlatStyle.Flat;
+            btnCerrarSesion.Location = new Point(12, 234);
+            btnCerrarSesion.Name = "btnCerrarSesion";
+            btnCerrarSesion.Size = new Size(219, 29);
+            btnCerrarSesion.TabIndex = 6;
+            btnCerrarSesion.Text = "Cerrar Sesion";
+            btnCerrarSesion.TextAlign = ContentAlignment.MiddleLeft;
+            btnCerrarSesion.UseVisualStyleBackColor = false;
             // 
             // btnHistorialPedido
             // 
@@ -110,18 +80,49 @@
             btnHistorialPedido.TextAlign = ContentAlignment.MiddleLeft;
             btnHistorialPedido.UseVisualStyleBackColor = false;
             // 
-            // btnCerrarSesion
+            // btnPerfil
             // 
-            btnCerrarSesion.BackColor = Color.Transparent;
-            btnCerrarSesion.FlatAppearance.BorderSize = 0;
-            btnCerrarSesion.FlatStyle = FlatStyle.Flat;
-            btnCerrarSesion.Location = new Point(12, 234);
-            btnCerrarSesion.Name = "btnCerrarSesion";
-            btnCerrarSesion.Size = new Size(219, 29);
-            btnCerrarSesion.TabIndex = 6;
-            btnCerrarSesion.Text = "Cerrar Sesion";
-            btnCerrarSesion.TextAlign = ContentAlignment.MiddleLeft;
-            btnCerrarSesion.UseVisualStyleBackColor = false;
+            btnPerfil.BackColor = Color.Transparent;
+            btnPerfil.FlatAppearance.BorderSize = 0;
+            btnPerfil.FlatStyle = FlatStyle.Flat;
+            btnPerfil.Location = new Point(12, 133);
+            btnPerfil.Name = "btnPerfil";
+            btnPerfil.Size = new Size(219, 29);
+            btnPerfil.TabIndex = 0;
+            btnPerfil.Text = "Perfil";
+            btnPerfil.TextAlign = ContentAlignment.MiddleLeft;
+            btnPerfil.UseVisualStyleBackColor = false;
+            btnPerfil.Click += btnPerfil_Click;
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.AutoSize = true;
+            lblTitulo.BackColor = Color.Transparent;
+            lblTitulo.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            lblTitulo.ForeColor = Color.FromArgb(44, 48, 51);
+            lblTitulo.Location = new Point(27, 75);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(192, 23);
+            lblTitulo.TabIndex = 4;
+            lblTitulo.Text = "Belle Crossaint Lyonnis";
+            // 
+            // pLogo
+            // 
+            pLogo.Image = (Image)resources.GetObject("pLogo.Image");
+            pLogo.Location = new Point(81, 12);
+            pLogo.Name = "pLogo";
+            pLogo.Size = new Size(73, 60);
+            pLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            pLogo.TabIndex = 3;
+            pLogo.TabStop = false;
+            // 
+            // PanelContenido
+            // 
+            PanelContenido.Dock = DockStyle.Fill;
+            PanelContenido.Location = new Point(250, 0);
+            PanelContenido.Name = "PanelContenido";
+            PanelContenido.Size = new Size(550, 450);
+            PanelContenido.TabIndex = 0;
             // 
             // FormPantallaPrincipal
             // 

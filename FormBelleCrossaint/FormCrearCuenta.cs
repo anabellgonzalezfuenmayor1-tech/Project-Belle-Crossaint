@@ -1,4 +1,6 @@
-﻿using System;
+﻿using clasesDAO;
+using mis_clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +12,26 @@ namespace FormBelleCrossaint
 {
     public partial class FormCrearCuenta : Form
     {
+        PreguntasDAO preguntasDAO = new PreguntasDAO();
         public FormCrearCuenta()
         {
             InitializeComponent();
+            CargarPreguntas();
+        }
+
+        private void CargarPreguntas()
+        {
+            cBoxPreguntasSeguridad.DataSource = null;
+            var preguntas = preguntasDAO.GetPreguntas();
+            foreach(var pregunta in preguntas)
+            {
+                cBoxPreguntasSeguridad.Items.Add(pregunta.Pregunta);
+            }
+        }
+        private void lblInicioSesion_Click(object sender, EventArgs e)
+        {
+            FormLogin formLogin = new FormLogin();
+            this.Close();
         }
     }
 }

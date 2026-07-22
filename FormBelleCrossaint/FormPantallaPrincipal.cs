@@ -13,6 +13,18 @@ namespace FormBelleCrossaint
         public FormPantallaPrincipal()
         {
             InitializeComponent();
+            PanelContenido.Controls.Clear();
+            UserControlPerfil perfil = new UserControlPerfil();
+            perfil.Dock = DockStyle.Fill;
+            PanelContenido.Controls.Add(perfil);
+        }
+
+        private void btnPerfil_Click(object sender, EventArgs e)
+        {
+            PanelContenido.Controls.Clear();
+            UserControlPerfil perfil = new UserControlPerfil();
+            perfil.Dock = DockStyle.Fill;
+            PanelContenido.Controls.Add(perfil);
         }
     }
 }

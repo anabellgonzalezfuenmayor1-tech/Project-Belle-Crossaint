@@ -41,7 +41,6 @@
             lblUsuario = new Label();
             txtUsuario = new TextBox();
             pLogo = new PictureBox();
-            maskedTextBox1 = new MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)pImagen).BeginInit();
             panelLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pVisible).BeginInit();
@@ -50,10 +49,11 @@
             // 
             // pImagen
             // 
+            pImagen.Dock = DockStyle.Left;
             pImagen.Image = (Image)resources.GetObject("pImagen.Image");
-            pImagen.Location = new Point(-3, -1);
+            pImagen.Location = new Point(0, 0);
             pImagen.Name = "pImagen";
-            pImagen.Size = new Size(605, 650);
+            pImagen.Size = new Size(605, 649);
             pImagen.SizeMode = PictureBoxSizeMode.CenterImage;
             pImagen.TabIndex = 0;
             pImagen.TabStop = false;
@@ -105,18 +105,19 @@
             lblCrearCuenta.AutoSize = true;
             lblCrearCuenta.Font = new Font("Segoe UI", 9F, FontStyle.Italic);
             lblCrearCuenta.ForeColor = Color.FromArgb(74, 81, 60);
-            lblCrearCuenta.Location = new Point(279, 396);
+            lblCrearCuenta.Location = new Point(279, 400);
             lblCrearCuenta.Name = "lblCrearCuenta";
             lblCrearCuenta.Size = new Size(94, 20);
             lblCrearCuenta.TabIndex = 6;
             lblCrearCuenta.Text = "Crear Cuenta";
+            lblCrearCuenta.Click += lblCrearCuenta_Click;
             // 
             // lblOlvidarContrasena
             // 
             lblOlvidarContrasena.AutoSize = true;
             lblOlvidarContrasena.Font = new Font("Segoe UI", 9F, FontStyle.Italic);
             lblOlvidarContrasena.ForeColor = Color.FromArgb(74, 81, 60);
-            lblOlvidarContrasena.Location = new Point(40, 396);
+            lblOlvidarContrasena.Location = new Point(40, 400);
             lblOlvidarContrasena.Name = "lblOlvidarContrasena";
             lblOlvidarContrasena.Size = new Size(172, 20);
             lblOlvidarContrasena.TabIndex = 5;
@@ -179,20 +180,12 @@
             pLogo.TabIndex = 2;
             pLogo.TabStop = false;
             // 
-            // maskedTextBox1
-            // 
-            maskedTextBox1.Location = new Point(0, 0);
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(125, 27);
-            maskedTextBox1.TabIndex = 2;
-            // 
             // FormLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1195, 649);
-            Controls.Add(maskedTextBox1);
             Controls.Add(panelLogin);
             Controls.Add(pImagen);
             Name = "FormLogin";
@@ -205,7 +198,6 @@
             ((System.ComponentModel.ISupportInitialize)pVisible).EndInit();
             ((System.ComponentModel.ISupportInitialize)pLogo).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -222,6 +214,5 @@
         private Label lblOlvidarContrasena;
         private Label lblTitulo;
         private PictureBox pVisible;
-        private MaskedTextBox maskedTextBox1;
     }
 }

@@ -24,5 +24,13 @@ namespace FormBelleCrossaint
         {
 
         }
+
+        private void lblCrearCuenta_Click(object sender, EventArgs e)
+        {
+            FormCrearCuenta formCrearCuenta = new FormCrearCuenta();
+            this.Visible = false;
+            formCrearCuenta.ShowDialog();
+            this.Visible = true;
+        }
     }
 }

@@ -28,16 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            label1 = new Label();
             SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(217, 63);
+            label1.Name = "label1";
+            label1.Size = new Size(59, 20);
+            label1.TabIndex = 0;
+            label1.Text = "lblPerfil";
             // 
             // UserControlPerfil
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label1);
             Name = "UserControlPerfil";
+            Size = new Size(587, 150);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Label label1;
     }
 }

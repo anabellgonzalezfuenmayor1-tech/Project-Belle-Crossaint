@@ -1,3 +1,5 @@
 <Solution>
+  <Project Path="clasesDAO/clasesDAO.csproj" Id="641de3a0-a012-4fcc-8503-1b2b64d920fa" />
   <Project Path="FormBelleCrossaint/FormBelleCrossaint.csproj" />
+  <Project Path="mis_clases/mis_clases.csproj" Id="88970c06-1dba-4775-8a85-bf5eab631c92" />
 </Solution>
