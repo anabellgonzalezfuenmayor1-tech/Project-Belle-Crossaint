@@ -11,22 +11,24 @@ namespace clasesDAO
         public List<Preguntas> GetPreguntas()
         {
             List<Preguntas> listaPreguntas = new List<Preguntas>();
-            listaPreguntas = null;
             try
             {
-                using (var connection = new SqlConnection(CadenaConexion))
+                using (SqlConnection connection = new SqlConnection(CadenaConexion))
                 {
                     connection.Open();
-                    string query = "SELECT * FROM Preguntas";
-                    using (var command = new SqlCommand(query, connection))
+                    string query = "SELECT * FROM PreguntasSeguridad;";
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        using (var reader = command.ExecuteReader())
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                Preguntas pregunta = new Preguntas();
-                                pregunta.Id = Convert.ToInt32(reader["Id"]);
-                                pregunta.Pregunta = Convert.ToString(reader["Pregunta"]);
+                                Preguntas pregunta = new Preguntas()
+                                {
+                                    Id = Convert.ToInt32(reader["Id"]),
+                                    Pregunta = Convert.ToString(reader["Pregunta"])
+                                };
+                                
                                 listaPreguntas.Add(pregunta);
                             }
                         }

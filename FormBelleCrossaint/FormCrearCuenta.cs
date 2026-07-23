@@ -21,11 +21,19 @@ namespace FormBelleCrossaint
 
         private void CargarPreguntas()
         {
-            cBoxPreguntasSeguridad.DataSource = null;
-            var preguntas = preguntasDAO.GetPreguntas();
-            foreach(var pregunta in preguntas)
+            try
             {
-                cBoxPreguntasSeguridad.Items.Add(pregunta.Pregunta);
+                cBoxPreguntasSeguridad.Items.Clear();
+                var preguntas = preguntasDAO.GetPreguntas();
+                foreach (var pregunta in preguntas)
+                {
+                    cBoxPreguntasSeguridad.Items.Add(pregunta.Pregunta);
+                }
+                cBoxPreguntasSeguridad.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al recorrer las preguntas", ex.Message);
             }
         }
         private void lblInicioSesion_Click(object sender, EventArgs e)

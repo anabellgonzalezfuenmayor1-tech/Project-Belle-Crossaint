@@ -39,7 +39,6 @@
             txtNombre = new TextBox();
             pLogo = new PictureBox();
             lblApellido = new Label();
-            txtApellido = new TextBox();
             lblCorreo = new Label();
             txtCorreo = new TextBox();
             pVisibleCC = new PictureBox();
@@ -50,6 +49,7 @@
             label6 = new Label();
             txtRespuesta = new TextBox();
             pictureBox2 = new PictureBox();
+            txtApellido = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pVisibleC).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pVisibleCC).BeginInit();
@@ -59,7 +59,7 @@
             // pVisibleC
             // 
             pVisibleC.Image = (Image)resources.GetObject("pVisibleC.Image");
-            pVisibleC.Location = new Point(392, 310);
+            pVisibleC.Location = new Point(438, 310);
             pVisibleC.Name = "pVisibleC";
             pVisibleC.Size = new Size(27, 27);
             pVisibleC.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -96,7 +96,7 @@
             btnCrearCuenta.ForeColor = Color.White;
             btnCrearCuenta.Location = new Point(69, 576);
             btnCrearCuenta.Name = "btnCrearCuenta";
-            btnCrearCuenta.Size = new Size(350, 34);
+            btnCrearCuenta.Size = new Size(400, 34);
             btnCrearCuenta.TabIndex = 3;
             btnCrearCuenta.Text = "Crear Cuenta";
             btnCrearCuenta.UseVisualStyleBackColor = false;
@@ -116,14 +116,14 @@
             txtContrasena.ForeColor = SystemColors.WindowFrame;
             txtContrasena.Location = new Point(69, 310);
             txtContrasena.Name = "txtContrasena";
-            txtContrasena.Size = new Size(317, 27);
+            txtContrasena.Size = new Size(363, 27);
             txtContrasena.TabIndex = 2;
             txtContrasena.UseSystemPasswordChar = true;
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(68, 150);
+            lblNombre.Location = new Point(69, 150);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(67, 20);
             lblNombre.TabIndex = 2;
@@ -135,7 +135,7 @@
             txtNombre.ForeColor = SystemColors.WindowFrame;
             txtNombre.Location = new Point(69, 173);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(172, 27);
+            txtNombre.Size = new Size(194, 27);
             txtNombre.TabIndex = 1;
             // 
             // pLogo
@@ -151,20 +151,11 @@
             // lblApellido
             // 
             lblApellido.AutoSize = true;
-            lblApellido.Location = new Point(247, 150);
+            lblApellido.Location = new Point(275, 150);
             lblApellido.Name = "lblApellido";
             lblApellido.Size = new Size(69, 20);
             lblApellido.TabIndex = 8;
             lblApellido.Text = "Apellido:";
-            // 
-            // txtApellido
-            // 
-            txtApellido.BorderStyle = BorderStyle.FixedSingle;
-            txtApellido.ForeColor = SystemColors.WindowFrame;
-            txtApellido.Location = new Point(247, 173);
-            txtApellido.Name = "txtApellido";
-            txtApellido.Size = new Size(172, 27);
-            txtApellido.TabIndex = 7;
             // 
             // lblCorreo
             // 
@@ -181,13 +172,13 @@
             txtCorreo.ForeColor = SystemColors.WindowFrame;
             txtCorreo.Location = new Point(69, 239);
             txtCorreo.Name = "txtCorreo";
-            txtCorreo.Size = new Size(350, 27);
+            txtCorreo.Size = new Size(396, 27);
             txtCorreo.TabIndex = 11;
             // 
             // pVisibleCC
             // 
             pVisibleCC.Image = (Image)resources.GetObject("pVisibleCC.Image");
-            pVisibleCC.Location = new Point(392, 385);
+            pVisibleCC.Location = new Point(438, 385);
             pVisibleCC.Name = "pVisibleCC";
             pVisibleCC.Size = new Size(27, 27);
             pVisibleCC.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -209,7 +200,7 @@
             txtConfirmarContrasena.ForeColor = SystemColors.WindowFrame;
             txtConfirmarContrasena.Location = new Point(69, 385);
             txtConfirmarContrasena.Name = "txtConfirmarContrasena";
-            txtConfirmarContrasena.Size = new Size(317, 27);
+            txtConfirmarContrasena.Size = new Size(363, 27);
             txtConfirmarContrasena.TabIndex = 14;
             txtConfirmarContrasena.UseSystemPasswordChar = true;
             // 
@@ -228,7 +219,7 @@
             cBoxPreguntasSeguridad.FormattingEnabled = true;
             cBoxPreguntasSeguridad.Location = new Point(69, 457);
             cBoxPreguntasSeguridad.Name = "cBoxPreguntasSeguridad";
-            cBoxPreguntasSeguridad.Size = new Size(350, 28);
+            cBoxPreguntasSeguridad.Size = new Size(396, 28);
             cBoxPreguntasSeguridad.TabIndex = 17;
             // 
             // label6
@@ -246,7 +237,7 @@
             txtRespuesta.ForeColor = SystemColors.WindowFrame;
             txtRespuesta.Location = new Point(69, 526);
             txtRespuesta.Name = "txtRespuesta";
-            txtRespuesta.Size = new Size(350, 27);
+            txtRespuesta.Size = new Size(396, 27);
             txtRespuesta.TabIndex = 18;
             // 
             // pictureBox2
@@ -260,14 +251,23 @@
             pictureBox2.TabIndex = 20;
             pictureBox2.TabStop = false;
             // 
+            // txtApellido
+            // 
+            txtApellido.BorderStyle = BorderStyle.FixedSingle;
+            txtApellido.ForeColor = SystemColors.WindowFrame;
+            txtApellido.Location = new Point(275, 173);
+            txtApellido.Name = "txtApellido";
+            txtApellido.Size = new Size(194, 27);
+            txtApellido.TabIndex = 21;
+            // 
             // FormCrearCuenta
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 657);
+            Controls.Add(txtApellido);
             Controls.Add(label6);
             Controls.Add(txtRespuesta);
-            Controls.Add(txtApellido);
             Controls.Add(cBoxPreguntasSeguridad);
             Controls.Add(pLogo);
             Controls.Add(label5);
@@ -305,7 +305,6 @@
         private Label lblCorreo;
         private TextBox txtCorreo;
         private Label lblApellido;
-        private TextBox txtApellido;
         private PictureBox pVisibleC;
         private Label lblTitulo;
         private Label lblInicioSesion;
@@ -319,5 +318,6 @@
         private TextBox txtRespuesta;
         private ComboBox cBoxPreguntasSeguridad;
         private PictureBox pictureBox2;
+        private TextBox txtApellido;
     }
 }
