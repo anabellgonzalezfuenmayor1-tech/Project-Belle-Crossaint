@@ -132,10 +132,12 @@
             lblOlvidarContrasena.Size = new Size(172, 20);
             lblOlvidarContrasena.TabIndex = 5;
             lblOlvidarContrasena.Text = "¿Olvidaste tu contraseña?";
+            lblOlvidarContrasena.Click += lblOlvidarContrasena_Click;
             // 
             // btnLogin
             // 
             btnLogin.BackColor = Color.FromArgb(158, 139, 76);
+            btnLogin.Enabled = false;
             btnLogin.ForeColor = Color.White;
             btnLogin.Location = new Point(40, 359);
             btnLogin.Name = "btnLogin";

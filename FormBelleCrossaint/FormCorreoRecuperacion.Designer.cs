@@ -127,6 +127,7 @@
             ClientSize = new Size(800, 354);
             Controls.Add(panelLogin);
             Name = "FormCorreoRecuperacion";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Correo Recuperacion";
             panelLogin.ResumeLayout(false);
             panelLogin.PerformLayout();
