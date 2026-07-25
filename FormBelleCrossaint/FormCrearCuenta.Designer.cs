@@ -69,6 +69,7 @@
             pVisibleC.SizeMode = PictureBoxSizeMode.StretchImage;
             pVisibleC.TabIndex = 2;
             pVisibleC.TabStop = false;
+            pVisibleC.Click += pVisibleC_Click;
             // 
             // lblTitulo
             // 
@@ -191,6 +192,7 @@
             pVisibleCC.SizeMode = PictureBoxSizeMode.StretchImage;
             pVisibleCC.TabIndex = 13;
             pVisibleCC.TabStop = false;
+            pVisibleCC.Click += pVisibleCC_Click;
             // 
             // lblConfirmarContrasena
             // 

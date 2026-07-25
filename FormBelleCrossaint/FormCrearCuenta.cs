@@ -279,5 +279,31 @@ namespace FormBelleCrossaint
         {
             txtApellido.Text = datosEnMayusculasYMinusculas(txtApellido.Text);
         }
+
+        private void pVisibleC_Click(object sender, EventArgs e)
+        {
+            txtContrasena.UseSystemPasswordChar = !txtContrasena.UseSystemPasswordChar;
+            if (txtContrasena.UseSystemPasswordChar)
+            {
+                pVisibleC.Image = Image.FromFile("C:\\Users\\AnaAl\\source\\repos\\BelleCrossaint\\imagenes\\Invisible.png");
+            }
+            else
+            {
+                pVisibleC.Image = Image.FromFile("C:\\Users\\AnaAl\\source\\repos\\BelleCrossaint\\imagenes\\Eye open.png");
+            }
+        }
+
+        private void pVisibleCC_Click(object sender, EventArgs e)
+        {
+            txtConfirmarContrasena.UseSystemPasswordChar = !txtConfirmarContrasena.UseSystemPasswordChar;
+            if (txtConfirmarContrasena.UseSystemPasswordChar)
+            {
+                pVisibleCC.Image = Image.FromFile("C:\\Users\\AnaAl\\source\\repos\\BelleCrossaint\\imagenes\\Invisible.png");
+            }
+            else
+            {
+                pVisibleCC.Image = Image.FromFile("C:\\Users\\AnaAl\\source\\repos\\BelleCrossaint\\imagenes\\Eye open.png");
+            }
+        }
     }
 }
