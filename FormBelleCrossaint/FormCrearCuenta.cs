@@ -1,5 +1,4 @@
 ﻿using clasesDAO;
-using Microsoft.VisualBasic.ApplicationServices;
 using mis_clases;
 using System;
 using System.Collections.Generic;
@@ -23,6 +22,7 @@ namespace FormBelleCrossaint
             CargarPreguntas();
         }
 
+        // CARGAR PREGUNTAS AL COMBOBOX DE PREGUNTAS DE SEGURIDAD
         private void CargarPreguntas()
         {
             try
@@ -46,7 +46,7 @@ namespace FormBelleCrossaint
             this.Close();
         }
 
-        // verificacion de que las contraseñas coincidan
+        // VERIFICACION DE QUE LAS CONTRASEÑAS COINCIDAN, SI NO COINCIDEN DEVUELVE FALSE
         private bool coincidenciaContrasenas()
         {
             if (txtContrasena.Text != txtConfirmarContrasena.Text)
@@ -56,7 +56,7 @@ namespace FormBelleCrossaint
             return true;
         }
 
-        // Metodo para crear la cuenta del usuario con los datos ingresados
+        // METODO PARA CREAR EL USUARIO, SE CREA UN OBJETO USUARIO CON LOS DATOS INGRESADOS Y SE LLAMA AL METODO CREARUSUARIO DEL DAO
         private void creacionCuenta()
         {
             Usuario usuario = new Usuario()
@@ -72,7 +72,7 @@ namespace FormBelleCrossaint
             usuarioDAO.CrearUsuario(usuario);
 
         }
-        // validacion de todas la entradas de datos obligatorias
+        // vVALIDACION DE CAMPOS OBLIGATORIOS, SI ALGUNO ESTA VACIO DEVUELVE FALSE
         private bool validarCamposObligatorios()
         {
             if (txtNombre.Text.Length == 0 || txtApellido.Text.Length == 0 ||
@@ -83,8 +83,8 @@ namespace FormBelleCrossaint
             }
             return true;
         }
-        
-        // Evento click del boton crear cuenta
+
+        // EVENTO CLICK DEL BOTON CREAR CUENTA, QUE LLAMA A TODAS LAS VALIDACIONES Y SI TODO ES CORRECTO CREA LA CUENTA
         private void btnCrearCuenta_Click(object sender, EventArgs e)
         {
             if (validarCamposObligatorios())
@@ -93,19 +93,16 @@ namespace FormBelleCrossaint
                 {
                     if (validarCorreo())
                     {
-                        try
+                        if (usuarioDAO.correoUnico(txtCorreo.Text.ToLower()))
                         {
-                            usuarioDAO.ObtenerListUsuario();
                             creacionCuenta();
                             MessageBox.Show("Cuenta creada exitosamente.");
-                            MessageBox.Show("Cantidad de usuarios: " + usuarioDAO.ObtenerListUsuario().Count());
                             this.Close();
                         }
-                        catch (Exception ex)
+                        else
                         {
-                            MessageBox.Show("Error al crear la cuenta: " + ex.Message);
+                            MessageBox.Show("Usuario Existente, inicia sesion");
                         }
-                        
                     }
                     else
                     {
@@ -122,7 +119,7 @@ namespace FormBelleCrossaint
                 MessageBox.Show("Por favor, complete todos los campos obligatorios.");
             }
         }
-        // validacion de correo correo
+        // VALIDACION DE QUE EL CORREO INGRESADO SEA VALIDO, USANDO LA CLASE MAILADDRESS
         private bool validarCorreo()
         {
             try
@@ -135,7 +132,7 @@ namespace FormBelleCrossaint
                 return false;
             }
         }
-        // validacion de campos obligatorios
+        // VALIDACIONES INSTANTANEAS DE LOS CAMPOS OBLIGATORIOS, CAMBIANDO EL COLOR DEL TEXTO Y EL NOMBRE DEL LABEL
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
             if (txtNombre.Text.Length > 0)
@@ -184,6 +181,16 @@ namespace FormBelleCrossaint
             {
                 lblCorreo.Text = "Correo";
                 lblCorreo.ForeColor = Color.FromArgb(44, 48, 51);
+
+                // VALIDACION DE QUE EL CORREO INGRESADO SEA UNICO, SI NO LO ES MUESTRA UN LABEL DE ERROR
+                if (usuarioDAO.correoUnico(txtCorreo.Text.ToLower()))
+                {
+                    lblUsuarioExistente.Visible = false;
+                }
+                else
+                {
+                    lblUsuarioExistente.Visible = true;
+                }
             }
             else
             {
@@ -251,9 +258,16 @@ namespace FormBelleCrossaint
         // PONER DATOS INGRESADOS EN PRIMERA EN MAYUSCULAS Y LAS DEMAS EN MINUSCULAS
         private string datosEnMayusculasYMinusculas(string dato)
         {
+            try
+            {
+                dato = dato.Substring(0, 1).ToUpper() + dato.Substring(1).ToLower();
+                return dato;
+            }
 
-            dato = dato.Substring(0, 1).ToUpper() + dato.Substring(1).ToLower();
-            return dato;
+            catch
+            {
+                return dato;
+            }
         }
         // VALIDAR EL TEXTO DE CADA CAMPO OBLIGATORIO PARA QUE NO HAYA ERRORES DE ESCRITURA
         private void txtNombre_Leave(object sender, EventArgs e)

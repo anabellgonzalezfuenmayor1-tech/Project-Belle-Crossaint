@@ -329,6 +329,7 @@
             lblUsuarioExistente.Size = new Size(122, 20);
             lblUsuarioExistente.TabIndex = 26;
             lblUsuarioExistente.Text = "Usuario existente";
+            lblUsuarioExistente.Visible = false;
             // 
             // FormCrearCuenta
             // 

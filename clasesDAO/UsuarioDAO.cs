@@ -10,13 +10,12 @@ namespace clasesDAO
         public List<Usuario> ObtenerListUsuario()
         {
             List<Usuario> listaUsuario = new List<Usuario>();
-            listaUsuario = null;
             try
             {
                 using (SqlConnection connection = new(CadenaConexion))
                 {
                     connection.Open();
-                    string query = "SELECT u.id, u.nombre, u.apellido,u.email, u.contrasena, \r\nps.pregunta, u.respuesta_seguridad, u.n_telefono, u.subcripcion_correo,u.path_perfil, me.metodo_nombre\r\nFROM Usuario u\r\nINNER JOIN PreguntasSeguridad ps \r\nON u.id_pregunta = ps.id\r\nINNER JOIN MetodoEntrega me \r\nON me.id = u.id_Metodo; \r\n";
+                    string query = "select * from vw_UsuarioCompleto";
                     using (SqlCommand command = new(query, connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
@@ -69,13 +68,10 @@ namespace clasesDAO
                 using (SqlConnection connection = new SqlConnection(CadenaConexion))
                 {
                     connection.Open();
-                    string query = """
-                        INSERT INTO 
-                        Usuario(id_pregunta, respuesta_seguridad, nombre, apellido, contrasena, email,subcripcion_correo, path_perfil)
-                        VALUES(@idPregunta, @respuestaSeguridad, @nombre, @apellido,@contrasena, @email,@subCorreo, @pathPerfil);
-                        """;
+                    string query = "sp_CrearUsuario";
                     using (SqlCommand command = new SqlCommand(query, connection))
-                    {
+                    {   
+                        command.CommandType = System.Data.CommandType.StoredProcedure;
                         //encriptar la contraseña antes de guardarla en la base de datos
                         usuario.Contrasena = BCrypt.Net.BCrypt.HashPassword(usuario.Contrasena);
                         // encriptar la respuesta de seguridad antes de guardarla en la base de datos
