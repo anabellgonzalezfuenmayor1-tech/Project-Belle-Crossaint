@@ -53,6 +53,7 @@
             pLogo = new PictureBox();
             lblCoincidencia1 = new Label();
             lblCoincidencia2 = new Label();
+            lblUsuarioExistente = new Label();
             ((System.ComponentModel.ISupportInitialize)pVisibleC).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pVisibleCC).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -147,6 +148,7 @@
             txtNombre.Size = new Size(194, 27);
             txtNombre.TabIndex = 1;
             txtNombre.TextChanged += txtNombre_TextChanged;
+            txtNombre.Leave += txtNombre_Leave;
             // 
             // lblApellido
             // 
@@ -273,6 +275,7 @@
             txtApellido.Size = new Size(194, 27);
             txtApellido.TabIndex = 21;
             txtApellido.TextChanged += txtApellido_TextChanged;
+            txtApellido.Leave += txtApellido_Leave;
             // 
             // cBoxSubcripcion
             // 
@@ -284,7 +287,6 @@
             cBoxSubcripcion.TabIndex = 22;
             cBoxSubcripcion.Text = "Subcribirse a la lista de email";
             cBoxSubcripcion.UseVisualStyleBackColor = false;
-            cBoxSubcripcion.CheckedChanged += cBoxSubcripcion_CheckedChanged;
             // 
             // pLogo
             // 
@@ -318,11 +320,22 @@
             lblCoincidencia2.Text = "Las contraseñas no coinciden";
             lblCoincidencia2.Visible = false;
             // 
+            // lblUsuarioExistente
+            // 
+            lblUsuarioExistente.AutoSize = true;
+            lblUsuarioExistente.ForeColor = Color.FromArgb(143, 55, 48);
+            lblUsuarioExistente.Location = new Point(347, 216);
+            lblUsuarioExistente.Name = "lblUsuarioExistente";
+            lblUsuarioExistente.Size = new Size(122, 20);
+            lblUsuarioExistente.TabIndex = 26;
+            lblUsuarioExistente.Text = "Usuario existente";
+            // 
             // FormCrearCuenta
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 692);
+            Controls.Add(lblUsuarioExistente);
             Controls.Add(lblCoincidencia2);
             Controls.Add(lblCoincidencia1);
             Controls.Add(pLogo);
@@ -383,5 +396,6 @@
         private PictureBox pLogo;
         private Label lblCoincidencia1;
         private Label lblCoincidencia2;
+        private Label lblUsuarioExistente;
     }
 }

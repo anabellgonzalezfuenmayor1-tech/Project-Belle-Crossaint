@@ -1,20 +1,22 @@
 ﻿using clasesDAO;
+using Microsoft.VisualBasic.ApplicationServices;
 using mis_clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace FormBelleCrossaint
 {
     public partial class FormCrearCuenta : Form
     {
         PreguntasDAO preguntasDAO = new PreguntasDAO();
-        public bool estadoSubcripcion = false;
-
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
         public FormCrearCuenta()
         {
             InitializeComponent();
@@ -44,12 +46,6 @@ namespace FormBelleCrossaint
             this.Close();
         }
 
-        // obtener estado del checkbox de suscripcion
-        private void cBoxSubcripcion_CheckedChanged(object sender, EventArgs e)
-        {
-            estadoSubcripcion = cBoxSubcripcion.Checked;
-        }
-
         // verificacion de que las contraseñas coincidan
         private bool coincidenciaContrasenas()
         {
@@ -60,7 +56,7 @@ namespace FormBelleCrossaint
             return true;
         }
 
-        // metodo para crear la cuenta del usuario
+        // Metodo para crear la cuenta del usuario con los datos ingresados
         private void creacionCuenta()
         {
             Usuario usuario = new Usuario()
@@ -68,33 +64,48 @@ namespace FormBelleCrossaint
                 Nombre = txtNombre.Text,
                 Apellido = txtApellido.Text,
                 PreguntaSeguridad = cBoxPreguntasSeguridad.SelectedItem.ToString(),
-                RespuestaSeguridad = txtRespuesta.Text,
-                Correo = txtCorreo.Text,
+                RespuestaSeguridad = txtRespuesta.Text.ToLower(),
+                Correo = txtCorreo.Text.ToLower(),
                 Contrasena = txtContrasena.Text,
-                SuscritoCorreo = estadoSubcripcion
+                SuscritoCorreo = cBoxSubcripcion.Checked
             };
+            usuarioDAO.CrearUsuario(usuario);
+
         }
-        // validacion de campos obligatorios todos
+        // validacion de todas la entradas de datos obligatorias
         private bool validarCamposObligatorios()
         {
-            if (txtNombre.Text.Length == 0 || txtApellido.Text.Length == 0 || txtRespuesta.Text.Length == 0 || txtCorreo.Text.Length == 0 || txtContrasena.Text.Length == 0 || txtConfirmarContrasena.Text.Length == 0)
+            if (txtNombre.Text.Length == 0 || txtApellido.Text.Length == 0 ||
+                txtRespuesta.Text.Length == 0 || txtCorreo.Text.Length == 0 ||
+                txtContrasena.Text.Length == 0 || txtConfirmarContrasena.Text.Length == 0)
             {
                 return false;
             }
             return true;
         }
+        
         // Evento click del boton crear cuenta
         private void btnCrearCuenta_Click(object sender, EventArgs e)
         {
-            if(validarCamposObligatorios())
+            if (validarCamposObligatorios())
             {
                 if (coincidenciaContrasenas())
                 {
                     if (validarCorreo())
                     {
-                        creacionCuenta();
-                        MessageBox.Show("Cuenta creada exitosamente.");
-                        this.Close();
+                        try
+                        {
+                            usuarioDAO.ObtenerListUsuario();
+                            creacionCuenta();
+                            MessageBox.Show("Cuenta creada exitosamente.");
+                            MessageBox.Show("Cantidad de usuarios: " + usuarioDAO.ObtenerListUsuario().Count());
+                            this.Close();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error al crear la cuenta: " + ex.Message);
+                        }
+                        
                     }
                     else
                     {
@@ -117,7 +128,7 @@ namespace FormBelleCrossaint
             try
             {
                 var addr = new System.Net.Mail.MailAddress(txtCorreo.Text);
-                return addr.Address == txtCorreo.Text;
+                return true;
             }
             catch
             {
@@ -237,7 +248,22 @@ namespace FormBelleCrossaint
                 }
             }
         }
+        // PONER DATOS INGRESADOS EN PRIMERA EN MAYUSCULAS Y LAS DEMAS EN MINUSCULAS
+        private string datosEnMayusculasYMinusculas(string dato)
+        {
 
-        // validacion de campos obligatorios
+            dato = dato.Substring(0, 1).ToUpper() + dato.Substring(1).ToLower();
+            return dato;
+        }
+        // VALIDAR EL TEXTO DE CADA CAMPO OBLIGATORIO PARA QUE NO HAYA ERRORES DE ESCRITURA
+        private void txtNombre_Leave(object sender, EventArgs e)
+        {
+            txtNombre.Text = datosEnMayusculasYMinusculas(txtNombre.Text);
+        }
+
+        private void txtApellido_Leave(object sender, EventArgs e)
+        {
+            txtApellido.Text = datosEnMayusculasYMinusculas(txtApellido.Text);
+        }
     }
 }

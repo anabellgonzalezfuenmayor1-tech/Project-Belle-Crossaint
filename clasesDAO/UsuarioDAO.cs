@@ -1,4 +1,5 @@
 ﻿using mis_clases;
+using Org.BouncyCastle.Crypto.Generators;
 using System.Data.SqlClient;
 
 namespace clasesDAO
@@ -12,11 +13,11 @@ namespace clasesDAO
             listaUsuario = null;
             try
             {
-                using (SqlConnection connection = new SqlConnection(CadenaConexion))
+                using (SqlConnection connection = new(CadenaConexion))
                 {
                     connection.Open();
                     string query = "SELECT u.id, u.nombre, u.apellido,u.email, u.contrasena, \r\nps.pregunta, u.respuesta_seguridad, u.n_telefono, u.subcripcion_correo,u.path_perfil, me.metodo_nombre\r\nFROM Usuario u\r\nINNER JOIN PreguntasSeguridad ps \r\nON u.id_pregunta = ps.id\r\nINNER JOIN MetodoEntrega me \r\nON me.id = u.id_Metodo; \r\n";
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    using (SqlCommand command = new(query, connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
@@ -48,44 +49,78 @@ namespace clasesDAO
             }
             return listaUsuario;
         }
-        public void EncriptarContrasena(Usuario usuario)
+        public void CrearUsuario(Usuario usuario)
         {
-            // obtener el id de pregunta de seguridad
-            PreguntasDAO preguntasDAO = new PreguntasDAO();
-            int idPregunta = 0;
-            foreach (var item in preguntasDAO.GetPreguntas())
+            try
             {
-                if (item.Pregunta == usuario.PreguntaSeguridad)
+                // obtener el id de pregunta de seguridad
+                PreguntasDAO preguntasDAO = new PreguntasDAO();
+                int idPregunta = 0;
+                foreach (var item in preguntasDAO.GetPreguntas())
                 {
-                    idPregunta = item.Id;
+                    if (item.Pregunta == usuario.PreguntaSeguridad)
+                    {
+                        idPregunta = item.Id;
+                    }
+                }
+                // obtener el id del metodo de entrega
+
+
+                using (SqlConnection connection = new SqlConnection(CadenaConexion))
+                {
+                    connection.Open();
+                    string query = """
+                        INSERT INTO 
+                        Usuario(id_pregunta, respuesta_seguridad, nombre, apellido, contrasena, email,subcripcion_correo, path_perfil)
+                        VALUES(@idPregunta, @respuestaSeguridad, @nombre, @apellido,@contrasena, @email,@subCorreo, @pathPerfil);
+                        """;
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        //encriptar la contraseña antes de guardarla en la base de datos
+                        usuario.Contrasena = BCrypt.Net.BCrypt.HashPassword(usuario.Contrasena);
+                        // encriptar la respuesta de seguridad antes de guardarla en la base de datos
+                        usuario.RespuestaSeguridad = BCrypt.Net.BCrypt.HashPassword(usuario.RespuestaSeguridad);
+
+                        // agregar los parámetros a la consulta
+                        command.Parameters.AddWithValue("@idPregunta", idPregunta);
+                        command.Parameters.AddWithValue("@respuestaSeguridad", usuario.RespuestaSeguridad);
+                        command.Parameters.AddWithValue("@nombre", usuario.Nombre);
+                        command.Parameters.AddWithValue("@apellido", usuario.Apellido);
+                        command.Parameters.AddWithValue("@contrasena", usuario.Contrasena);
+                        command.Parameters.AddWithValue("@email", usuario.Correo);
+                        command.Parameters.AddWithValue("@subCorreo", usuario.SuscritoCorreo);
+                        command.Parameters.AddWithValue("@pathPerfil", usuario.PathPerfil);
+                        command.ExecuteNonQuery();
+                    }
+
                 }
             }
-            // obtener el id del metodo de entrega
-
-
-            using (SqlConnection connection = new SqlConnection(CadenaConexion))
+            catch (Exception ex)
             {
-                connection.Open();
-                string query = "INSERT INTO \r\nUsuario(id_pregunta, respuesta_seguridad, nombre, apellido, contrasena, email, n_telefono, subcripcion_correo, path_perfil, id_Metodo)\r\nVALUES\r\n(@idPregunta, @respuestaSeguridad, @nombre, @apellido, ,@contrasena, @email, @telefono, @subCorreo, @pathPerfil, @idMetodo );";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    
-                    // agregar los parámetros a la consulta
-                    command.Parameters.AddWithValue("@idPregunta", idPregunta);
-                    command.Parameters.AddWithValue("@respuestaSeguridad", usuario.RespuestaSeguridad);
-                    command.Parameters.AddWithValue("@nombre", usuario.Nombre);
-                    command.Parameters.AddWithValue("@apellido", usuario.Apellido);
-                    command.Parameters.AddWithValue("@contrasena", usuario.Contrasena);
-                    command.Parameters.AddWithValue("@email", usuario.Correo);
-                    command.Parameters.AddWithValue("@telefono", usuario.NTelefono);
-                    command.Parameters.AddWithValue("@subCorreo", usuario.SuscritoCorreo);
-                    command.Parameters.AddWithValue("@pathPerfil", usuario.PathPerfil);
-                    command.Parameters.AddWithValue("@idMetodo", usuario.MetodoEntrega);
-                    command.ExecuteNonQuery();
-                }
+                MessageBox.Show("Error al crear el usuario: " + ex.Message);
 
             }
-            
+        }
+        // validar que el correo sea unico
+        public bool correoUnico(string correo)
+        {
+            try
+            {
+                foreach (var c in ObtenerListUsuario())
+                {
+                    if (c.Correo == correo)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al validar el correo: " + ex.Message);
+                return false;
+            }
+
         }
     }
 }
