@@ -97,8 +97,8 @@ namespace clasesDAO
 
             }
         }
-        // validar que el correo sea unico
-        public bool correoUnico(string correo)
+        // VALIDAR QUE EL CORREO EXISTA EN LA BASE DE DATOS, SI EXISTE RETORNAR TRUE, SI NO EXISTE RETORNAR FALSE
+        public bool correoExistente(string correo)
         {
             try
             {
@@ -106,17 +106,44 @@ namespace clasesDAO
                 {
                     if (c.Correo == correo)
                     {
-                        return false;
+                        return true;
                     }
                 }
-                return true;
+                return false;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al validar el correo: " + ex.Message);
                 return false;
             }
-
+        }
+        // VALIDAR QUE LA CONTRASEÑA PERTENEZCA AL CORREO, SI PERTENECE RETORNAR TRUE, SI NO PERTENECE RETORNAR FALSE
+        public bool validarContrasena(string correo, string contrasena)
+        {
+            try
+            {
+                foreach (var c in ObtenerListUsuario())
+                {
+                    if (c.Correo == correo)
+                    {
+                        // comparar la contraseña encriptada con la contraseña ingresada
+                        if (BCrypt.Net.BCrypt.Verify(contrasena, c.Contrasena))
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al validar la contraseña: " + ex.Message);
+                return false;
+            }
         }
     }
 }

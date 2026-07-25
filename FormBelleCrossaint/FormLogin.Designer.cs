@@ -143,6 +143,7 @@
             btnLogin.TabIndex = 3;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // lblContrasena
             // 
@@ -162,6 +163,7 @@
             txtContrasena.Size = new Size(292, 27);
             txtContrasena.TabIndex = 2;
             txtContrasena.UseSystemPasswordChar = true;
+            txtContrasena.TextChanged += txtContrasena_TextChanged;
             // 
             // lblUsuario
             // 
@@ -180,6 +182,7 @@
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(333, 27);
             txtUsuario.TabIndex = 1;
+            txtUsuario.TextChanged += txtUsuario_TextChanged;
             // 
             // FormLogin
             // 

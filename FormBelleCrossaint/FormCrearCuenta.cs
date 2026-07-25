@@ -93,7 +93,7 @@ namespace FormBelleCrossaint
                 {
                     if (validarCorreo())
                     {
-                        if (usuarioDAO.correoUnico(txtCorreo.Text.ToLower()))
+                        if (!usuarioDAO.correoExistente(txtCorreo.Text.ToLower()))
                         {
                             creacionCuenta();
                             MessageBox.Show("Cuenta creada exitosamente.");
@@ -183,13 +183,13 @@ namespace FormBelleCrossaint
                 lblCorreo.ForeColor = Color.FromArgb(44, 48, 51);
 
                 // VALIDACION DE QUE EL CORREO INGRESADO SEA UNICO, SI NO LO ES MUESTRA UN LABEL DE ERROR
-                if (usuarioDAO.correoUnico(txtCorreo.Text.ToLower()))
+                if (usuarioDAO.correoExistente(txtCorreo.Text.ToLower()))
                 {
-                    lblUsuarioExistente.Visible = false;
+                    lblUsuarioExistente.Visible = true;
                 }
                 else
                 {
-                    lblUsuarioExistente.Visible = true;
+                    lblUsuarioExistente.Visible = false;
                 }
             }
             else
