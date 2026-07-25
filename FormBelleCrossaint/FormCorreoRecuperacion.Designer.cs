@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             panelLogin = new Panel();
+            lblVolverlInicio = new Label();
             lblTitulo = new Label();
             btnAceptar = new Button();
             lblContrasena = new Label();
             txtCorreo = new TextBox();
             lblDescripcion = new Label();
-            lblVolverlInicio = new Label();
             panelLogin.SuspendLayout();
             SuspendLayout();
             // 
@@ -53,6 +53,17 @@
             panelLogin.Size = new Size(409, 290);
             panelLogin.TabIndex = 2;
             // 
+            // lblVolverlInicio
+            // 
+            lblVolverlInicio.AutoSize = true;
+            lblVolverlInicio.Font = new Font("Segoe UI", 9F, FontStyle.Italic);
+            lblVolverlInicio.ForeColor = Color.FromArgb(145, 128, 70);
+            lblVolverlInicio.Location = new Point(29, 229);
+            lblVolverlInicio.Name = "lblVolverlInicio";
+            lblVolverlInicio.Size = new Size(147, 20);
+            lblVolverlInicio.TabIndex = 6;
+            lblVolverlInicio.Text = "Volver al inicio sesion";
+            // 
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
@@ -68,7 +79,7 @@
             // 
             // btnAceptar
             // 
-            btnAceptar.BackColor = Color.FromArgb(74, 81, 60);
+            btnAceptar.BackColor = Color.FromArgb(145, 128, 70);
             btnAceptar.ForeColor = Color.White;
             btnAceptar.Location = new Point(215, 219);
             btnAceptar.Name = "btnAceptar";
@@ -107,17 +118,6 @@
             lblDescripcion.TabIndex = 2;
             lblDescripcion.Text = "Ingresa tu usuario para recuperar contraseña";
             lblDescripcion.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // lblVolverlInicio
-            // 
-            lblVolverlInicio.AutoSize = true;
-            lblVolverlInicio.Font = new Font("Segoe UI", 9F, FontStyle.Italic);
-            lblVolverlInicio.ForeColor = Color.FromArgb(74, 81, 60);
-            lblVolverlInicio.Location = new Point(29, 229);
-            lblVolverlInicio.Name = "lblVolverlInicio";
-            lblVolverlInicio.Size = new Size(147, 20);
-            lblVolverlInicio.TabIndex = 6;
-            lblVolverlInicio.Text = "Volver al inicio sesion";
             // 
             // FormCorreoRecuperacion
             // 

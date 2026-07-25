@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             pImagen = new PictureBox();
             panelLogin = new Panel();
+            pLogo = new PictureBox();
             pVisible = new PictureBox();
             lblTitulo = new Label();
             lblCrearCuenta = new Label();
@@ -40,11 +41,10 @@
             txtContrasena = new TextBox();
             lblUsuario = new Label();
             txtUsuario = new TextBox();
-            pLogo = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pImagen).BeginInit();
             panelLogin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pVisible).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pLogo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pVisible).BeginInit();
             SuspendLayout();
             // 
             // pImagen
@@ -60,8 +60,9 @@
             // 
             // panelLogin
             // 
-            panelLogin.BackColor = Color.WhiteSmoke;
+            panelLogin.BackColor = Color.FromArgb(248, 243, 238);
             panelLogin.BorderStyle = BorderStyle.FixedSingle;
+            panelLogin.Controls.Add(pLogo);
             panelLogin.Controls.Add(pVisible);
             panelLogin.Controls.Add(lblTitulo);
             panelLogin.Controls.Add(lblCrearCuenta);
@@ -71,11 +72,20 @@
             panelLogin.Controls.Add(txtContrasena);
             panelLogin.Controls.Add(lblUsuario);
             panelLogin.Controls.Add(txtUsuario);
-            panelLogin.Controls.Add(pLogo);
             panelLogin.Location = new Point(702, 85);
             panelLogin.Name = "panelLogin";
             panelLogin.Size = new Size(409, 485);
             panelLogin.TabIndex = 1;
+            // 
+            // pLogo
+            // 
+            pLogo.Image = (Image)resources.GetObject("pLogo.Image");
+            pLogo.Location = new Point(112, 4);
+            pLogo.Name = "pLogo";
+            pLogo.Size = new Size(192, 120);
+            pLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            pLogo.TabIndex = 7;
+            pLogo.TabStop = false;
             // 
             // pVisible
             // 
@@ -94,7 +104,7 @@
             lblTitulo.BackColor = Color.WhiteSmoke;
             lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = Color.FromArgb(44, 48, 51);
-            lblTitulo.Location = new Point(46, 127);
+            lblTitulo.Location = new Point(48, 127);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(319, 41);
             lblTitulo.TabIndex = 2;
@@ -125,7 +135,7 @@
             // 
             // btnLogin
             // 
-            btnLogin.BackColor = Color.FromArgb(74, 81, 60);
+            btnLogin.BackColor = Color.FromArgb(158, 139, 76);
             btnLogin.ForeColor = Color.White;
             btnLogin.Location = new Point(40, 359);
             btnLogin.Name = "btnLogin";
@@ -171,15 +181,6 @@
             txtUsuario.Size = new Size(333, 27);
             txtUsuario.TabIndex = 1;
             // 
-            // pLogo
-            // 
-            pLogo.Image = (Image)resources.GetObject("pLogo.Image");
-            pLogo.Location = new Point(132, 19);
-            pLogo.Name = "pLogo";
-            pLogo.Size = new Size(146, 105);
-            pLogo.TabIndex = 2;
-            pLogo.TabStop = false;
-            // 
             // FormLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -195,8 +196,8 @@
             ((System.ComponentModel.ISupportInitialize)pImagen).EndInit();
             panelLogin.ResumeLayout(false);
             panelLogin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pVisible).EndInit();
             ((System.ComponentModel.ISupportInitialize)pLogo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pVisible).EndInit();
             ResumeLayout(false);
         }
 
@@ -204,7 +205,6 @@
 
         private PictureBox pImagen;
         private Panel panelLogin;
-        private PictureBox pLogo;
         private Label lblUsuario;
         private TextBox txtUsuario;
         private Button btnLogin;
@@ -214,5 +214,6 @@
         private Label lblOlvidarContrasena;
         private Label lblTitulo;
         private PictureBox pVisible;
+        private PictureBox pLogo;
     }
 }

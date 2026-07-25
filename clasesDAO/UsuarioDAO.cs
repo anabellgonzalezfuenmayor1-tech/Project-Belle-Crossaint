@@ -50,10 +50,39 @@ namespace clasesDAO
         }
         public void EncriptarContrasena(Usuario usuario)
         {
+            // obtener el id de pregunta de seguridad
+            PreguntasDAO preguntasDAO = new PreguntasDAO();
+            int idPregunta = 0;
+            foreach (var item in preguntasDAO.GetPreguntas())
+            {
+                if (item.Pregunta == usuario.PreguntaSeguridad)
+                {
+                    idPregunta = item.Id;
+                }
+            }
+            // obtener el id del metodo de entrega
+
+
             using (SqlConnection connection = new SqlConnection(CadenaConexion))
             {
                 connection.Open();
-                string query = "UPDATE ";
+                string query = "INSERT INTO \r\nUsuario(id_pregunta, respuesta_seguridad, nombre, apellido, contrasena, email, n_telefono, subcripcion_correo, path_perfil, id_Metodo)\r\nVALUES\r\n(@idPregunta, @respuestaSeguridad, @nombre, @apellido, ,@contrasena, @email, @telefono, @subCorreo, @pathPerfil, @idMetodo );";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    
+                    // agregar los parámetros a la consulta
+                    command.Parameters.AddWithValue("@idPregunta", idPregunta);
+                    command.Parameters.AddWithValue("@respuestaSeguridad", usuario.RespuestaSeguridad);
+                    command.Parameters.AddWithValue("@nombre", usuario.Nombre);
+                    command.Parameters.AddWithValue("@apellido", usuario.Apellido);
+                    command.Parameters.AddWithValue("@contrasena", usuario.Contrasena);
+                    command.Parameters.AddWithValue("@email", usuario.Correo);
+                    command.Parameters.AddWithValue("@telefono", usuario.NTelefono);
+                    command.Parameters.AddWithValue("@subCorreo", usuario.SuscritoCorreo);
+                    command.Parameters.AddWithValue("@pathPerfil", usuario.PathPerfil);
+                    command.Parameters.AddWithValue("@idMetodo", usuario.MetodoEntrega);
+                    command.ExecuteNonQuery();
+                }
 
             }
             

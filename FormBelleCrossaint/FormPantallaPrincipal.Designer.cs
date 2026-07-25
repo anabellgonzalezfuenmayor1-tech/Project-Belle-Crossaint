@@ -59,7 +59,7 @@
             btnCerrarSesion.BackColor = Color.Transparent;
             btnCerrarSesion.FlatAppearance.BorderSize = 0;
             btnCerrarSesion.FlatStyle = FlatStyle.Flat;
-            btnCerrarSesion.Location = new Point(12, 234);
+            btnCerrarSesion.Location = new Point(12, 251);
             btnCerrarSesion.Name = "btnCerrarSesion";
             btnCerrarSesion.Size = new Size(219, 29);
             btnCerrarSesion.TabIndex = 6;
@@ -72,7 +72,7 @@
             btnHistorialPedido.BackColor = Color.Transparent;
             btnHistorialPedido.FlatAppearance.BorderSize = 0;
             btnHistorialPedido.FlatStyle = FlatStyle.Flat;
-            btnHistorialPedido.Location = new Point(12, 181);
+            btnHistorialPedido.Location = new Point(12, 198);
             btnHistorialPedido.Name = "btnHistorialPedido";
             btnHistorialPedido.Size = new Size(219, 29);
             btnHistorialPedido.TabIndex = 5;
@@ -85,7 +85,7 @@
             btnPerfil.BackColor = Color.Transparent;
             btnPerfil.FlatAppearance.BorderSize = 0;
             btnPerfil.FlatStyle = FlatStyle.Flat;
-            btnPerfil.Location = new Point(12, 133);
+            btnPerfil.Location = new Point(12, 150);
             btnPerfil.Name = "btnPerfil";
             btnPerfil.Size = new Size(219, 29);
             btnPerfil.TabIndex = 0;
@@ -100,7 +100,7 @@
             lblTitulo.BackColor = Color.Transparent;
             lblTitulo.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = Color.FromArgb(44, 48, 51);
-            lblTitulo.Location = new Point(27, 75);
+            lblTitulo.Location = new Point(29, 114);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(192, 23);
             lblTitulo.TabIndex = 4;
@@ -109,9 +109,9 @@
             // pLogo
             // 
             pLogo.Image = (Image)resources.GetObject("pLogo.Image");
-            pLogo.Location = new Point(81, 12);
+            pLogo.Location = new Point(47, 9);
             pLogo.Name = "pLogo";
-            pLogo.Size = new Size(73, 60);
+            pLogo.Size = new Size(152, 102);
             pLogo.SizeMode = PictureBoxSizeMode.StretchImage;
             pLogo.TabIndex = 3;
             pLogo.TabStop = false;

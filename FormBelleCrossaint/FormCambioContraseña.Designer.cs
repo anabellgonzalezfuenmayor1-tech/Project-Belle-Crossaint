@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCambioContraseña));
             panelLogin = new Panel();
-            lblTitulo = new Label();
-            btnAceptar = new Button();
-            pVisible = new PictureBox();
-            lblContrasena = new Label();
-            txtContrasenaNueva = new TextBox();
             pictureBox1 = new PictureBox();
             label1 = new Label();
             txtVerificacionContraseña = new TextBox();
+            pVisible = new PictureBox();
+            lblContrasena = new Label();
+            txtContrasenaNueva = new TextBox();
+            lblTitulo = new Label();
+            btnAceptar = new Button();
             panelLogin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pVisible).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pVisible).BeginInit();
             SuspendLayout();
             // 
             // panelLogin
@@ -59,59 +59,6 @@
             panelLogin.Name = "panelLogin";
             panelLogin.Size = new Size(409, 295);
             panelLogin.TabIndex = 3;
-            // 
-            // lblTitulo
-            // 
-            lblTitulo.AutoSize = true;
-            lblTitulo.BackColor = Color.WhiteSmoke;
-            lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTitulo.ForeColor = Color.FromArgb(44, 48, 51);
-            lblTitulo.Location = new Point(75, 16);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(260, 41);
-            lblTitulo.TabIndex = 2;
-            lblTitulo.Text = "Nueva Contraseña";
-            lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // btnAceptar
-            // 
-            btnAceptar.BackColor = Color.FromArgb(74, 81, 60);
-            btnAceptar.ForeColor = Color.White;
-            btnAceptar.Location = new Point(43, 233);
-            btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new Size(333, 34);
-            btnAceptar.TabIndex = 3;
-            btnAceptar.Text = "Aceptar";
-            btnAceptar.UseVisualStyleBackColor = false;
-            // 
-            // pVisible
-            // 
-            pVisible.Image = (Image)resources.GetObject("pVisible.Image");
-            pVisible.Location = new Point(349, 103);
-            pVisible.Name = "pVisible";
-            pVisible.Size = new Size(27, 27);
-            pVisible.SizeMode = PictureBoxSizeMode.StretchImage;
-            pVisible.TabIndex = 7;
-            pVisible.TabStop = false;
-            // 
-            // lblContrasena
-            // 
-            lblContrasena.AutoSize = true;
-            lblContrasena.Location = new Point(43, 80);
-            lblContrasena.Name = "lblContrasena";
-            lblContrasena.Size = new Size(132, 20);
-            lblContrasena.TabIndex = 9;
-            lblContrasena.Text = "Nueva Contraseña:";
-            // 
-            // txtContrasenaNueva
-            // 
-            txtContrasenaNueva.BorderStyle = BorderStyle.FixedSingle;
-            txtContrasenaNueva.ForeColor = SystemColors.WindowFrame;
-            txtContrasenaNueva.Location = new Point(43, 103);
-            txtContrasenaNueva.Name = "txtContrasenaNueva";
-            txtContrasenaNueva.Size = new Size(292, 27);
-            txtContrasenaNueva.TabIndex = 8;
-            txtContrasenaNueva.UseSystemPasswordChar = true;
             // 
             // pictureBox1
             // 
@@ -142,6 +89,59 @@
             txtVerificacionContraseña.TabIndex = 11;
             txtVerificacionContraseña.UseSystemPasswordChar = true;
             // 
+            // pVisible
+            // 
+            pVisible.Image = (Image)resources.GetObject("pVisible.Image");
+            pVisible.Location = new Point(349, 103);
+            pVisible.Name = "pVisible";
+            pVisible.Size = new Size(27, 27);
+            pVisible.SizeMode = PictureBoxSizeMode.StretchImage;
+            pVisible.TabIndex = 7;
+            pVisible.TabStop = false;
+            // 
+            // lblContrasena
+            // 
+            lblContrasena.AutoSize = true;
+            lblContrasena.Location = new Point(43, 80);
+            lblContrasena.Name = "lblContrasena";
+            lblContrasena.Size = new Size(132, 20);
+            lblContrasena.TabIndex = 9;
+            lblContrasena.Text = "Nueva Contraseña:";
+            // 
+            // txtContrasenaNueva
+            // 
+            txtContrasenaNueva.BorderStyle = BorderStyle.FixedSingle;
+            txtContrasenaNueva.ForeColor = SystemColors.WindowFrame;
+            txtContrasenaNueva.Location = new Point(43, 103);
+            txtContrasenaNueva.Name = "txtContrasenaNueva";
+            txtContrasenaNueva.Size = new Size(292, 27);
+            txtContrasenaNueva.TabIndex = 8;
+            txtContrasenaNueva.UseSystemPasswordChar = true;
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.AutoSize = true;
+            lblTitulo.BackColor = Color.WhiteSmoke;
+            lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTitulo.ForeColor = Color.FromArgb(44, 48, 51);
+            lblTitulo.Location = new Point(75, 16);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(260, 41);
+            lblTitulo.TabIndex = 2;
+            lblTitulo.Text = "Nueva Contraseña";
+            lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnAceptar
+            // 
+            btnAceptar.BackColor = Color.FromArgb(145, 128, 70);
+            btnAceptar.ForeColor = Color.White;
+            btnAceptar.Location = new Point(43, 233);
+            btnAceptar.Name = "btnAceptar";
+            btnAceptar.Size = new Size(333, 34);
+            btnAceptar.TabIndex = 3;
+            btnAceptar.Text = "Aceptar";
+            btnAceptar.UseVisualStyleBackColor = false;
+            // 
             // FormCambioContraseña
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -152,8 +152,8 @@
             Text = "Cambio de contraseña";
             panelLogin.ResumeLayout(false);
             panelLogin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pVisible).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pVisible).EndInit();
             ResumeLayout(false);
         }
 
