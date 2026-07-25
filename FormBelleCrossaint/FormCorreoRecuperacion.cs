@@ -14,5 +14,15 @@ namespace FormBelleCrossaint
         {
             InitializeComponent();
         }
+
+        private void lblVolverlInicio_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

@@ -78,9 +78,9 @@ namespace FormBelleCrossaint
         private void lblOlvidarContrasena_Click(object sender, EventArgs e)
         {
             FormCorreoRecuperacion formCorreoRecuperacion = new();
-            this.Visible = false;
+            this.Hide();
             formCorreoRecuperacion.ShowDialog();
-            this.Visible = true;
+            this.Show();
         }
     }
 }

@@ -63,6 +63,7 @@
             lblVolverlInicio.Size = new Size(147, 20);
             lblVolverlInicio.TabIndex = 6;
             lblVolverlInicio.Text = "Volver al inicio sesion";
+            lblVolverlInicio.Click += lblVolverlInicio_Click;
             // 
             // lblTitulo
             // 
@@ -87,6 +88,7 @@
             btnAceptar.TabIndex = 3;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = false;
+            btnAceptar.Click += btnAceptar_Click;
             // 
             // lblContrasena
             // 
