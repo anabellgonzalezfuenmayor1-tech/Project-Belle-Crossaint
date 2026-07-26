@@ -32,7 +32,6 @@
             pImagen = new PictureBox();
             panelLogin = new Panel();
             pLogo = new PictureBox();
-            pVisible = new PictureBox();
             lblTitulo = new Label();
             lblCrearCuenta = new Label();
             lblOlvidarContrasena = new Label();
@@ -41,10 +40,11 @@
             txtContrasena = new TextBox();
             lblUsuario = new Label();
             txtUsuario = new TextBox();
+            pVisibleC = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pImagen).BeginInit();
             panelLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pLogo).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pVisible).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pVisibleC).BeginInit();
             SuspendLayout();
             // 
             // pImagen
@@ -62,8 +62,8 @@
             // 
             panelLogin.BackColor = Color.FromArgb(248, 243, 238);
             panelLogin.BorderStyle = BorderStyle.FixedSingle;
+            panelLogin.Controls.Add(pVisibleC);
             panelLogin.Controls.Add(pLogo);
-            panelLogin.Controls.Add(pVisible);
             panelLogin.Controls.Add(lblTitulo);
             panelLogin.Controls.Add(lblCrearCuenta);
             panelLogin.Controls.Add(lblOlvidarContrasena);
@@ -86,17 +86,6 @@
             pLogo.SizeMode = PictureBoxSizeMode.StretchImage;
             pLogo.TabIndex = 7;
             pLogo.TabStop = false;
-            // 
-            // pVisible
-            // 
-            pVisible.Image = (Image)resources.GetObject("pVisible.Image");
-            pVisible.Location = new Point(346, 298);
-            pVisible.Name = "pVisible";
-            pVisible.Size = new Size(27, 27);
-            pVisible.SizeMode = PictureBoxSizeMode.StretchImage;
-            pVisible.TabIndex = 2;
-            pVisible.TabStop = false;
-            pVisible.Click += pVisible_Click;
             // 
             // lblTitulo
             // 
@@ -186,6 +175,17 @@
             txtUsuario.TabIndex = 1;
             txtUsuario.TextChanged += txtUsuario_TextChanged;
             // 
+            // pVisibleC
+            // 
+            pVisibleC.Image = (Image)resources.GetObject("pVisibleC.Image");
+            pVisibleC.Location = new Point(346, 298);
+            pVisibleC.Name = "pVisibleC";
+            pVisibleC.Size = new Size(27, 27);
+            pVisibleC.SizeMode = PictureBoxSizeMode.StretchImage;
+            pVisibleC.TabIndex = 8;
+            pVisibleC.TabStop = false;
+            pVisibleC.Click += pVisibleC_Click;
+            // 
             // FormLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -197,12 +197,11 @@
             Name = "FormLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
-            Load += FormLogin_Load;
             ((System.ComponentModel.ISupportInitialize)pImagen).EndInit();
             panelLogin.ResumeLayout(false);
             panelLogin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pLogo).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pVisible).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pVisibleC).EndInit();
             ResumeLayout(false);
         }
 
@@ -218,7 +217,7 @@
         private Label lblCrearCuenta;
         private Label lblOlvidarContrasena;
         private Label lblTitulo;
-        private PictureBox pVisible;
         private PictureBox pLogo;
+        private PictureBox pVisibleC;
     }
 }

@@ -107,7 +107,6 @@
             txtCorreo.Name = "txtCorreo";
             txtCorreo.Size = new Size(342, 27);
             txtCorreo.TabIndex = 2;
-            txtCorreo.UseSystemPasswordChar = true;
             // 
             // lblDescripcion
             // 

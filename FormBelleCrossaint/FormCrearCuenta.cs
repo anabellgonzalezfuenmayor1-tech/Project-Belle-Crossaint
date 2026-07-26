@@ -263,7 +263,6 @@ namespace FormBelleCrossaint
                 dato = dato.Substring(0, 1).ToUpper() + dato.Substring(1).ToLower();
                 return dato;
             }
-
             catch
             {
                 return dato;
@@ -280,29 +279,29 @@ namespace FormBelleCrossaint
             txtApellido.Text = datosEnMayusculasYMinusculas(txtApellido.Text);
         }
 
-        private void pVisibleC_Click(object sender, EventArgs e)
-        {
-            txtContrasena.UseSystemPasswordChar = !txtContrasena.UseSystemPasswordChar;
-            if (txtContrasena.UseSystemPasswordChar)
-            {
-                pVisibleC.Image = Image.FromFile("C:\\Users\\AnaAl\\source\\repos\\BelleCrossaint\\imagenes\\Invisible.png");
-            }
-            else
-            {
-                pVisibleC.Image = Image.FromFile("C:\\Users\\AnaAl\\source\\repos\\BelleCrossaint\\imagenes\\Eye open.png");
-            }
-        }
-
         private void pVisibleCC_Click(object sender, EventArgs e)
         {
             txtConfirmarContrasena.UseSystemPasswordChar = !txtConfirmarContrasena.UseSystemPasswordChar;
             if (txtConfirmarContrasena.UseSystemPasswordChar)
             {
-                pVisibleCC.Image = Image.FromFile("C:\\Users\\AnaAl\\source\\repos\\BelleCrossaint\\imagenes\\Invisible.png");
+                pVisibleC.Image = Image.FromFile("C:\\Users\\AnaAl\\source\\repos\\Project-Belle-Crossaint\\imagenes\\Invisible.png");
             }
             else
             {
-                pVisibleCC.Image = Image.FromFile("C:\\Users\\AnaAl\\source\\repos\\BelleCrossaint\\imagenes\\Eye open.png");
+                pVisibleC.Image = Image.FromFile("C:\\Users\\AnaAl\\source\\repos\\Project-Belle-Crossaint\\imagenes\\Eye open.png");
+            }
+        }
+
+        private void pVisibleC_Click_1(object sender, EventArgs e)
+        {
+            txtContrasena.UseSystemPasswordChar = !txtContrasena.UseSystemPasswordChar;
+            if (txtContrasena.UseSystemPasswordChar)
+            {
+                pVisibleC.Image = Image.FromFile("C:\\Users\\AnaAl\\source\\repos\\Project-Belle-Crossaint\\imagenes\\Invisible.png");
+            }
+            else
+            {
+                pVisibleC.Image = Image.FromFile("C:\\Users\\AnaAl\\source\\repos\\Project-Belle-Crossaint\\imagenes\\Eye open.png");
             }
         }
     }

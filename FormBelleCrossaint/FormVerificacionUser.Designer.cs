@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             panelLogin = new Panel();
-            lblTitulo = new Label();
-            btnAceptar = new Button();
-            lblDescripcion = new Label();
-            lblPregunta = new Label();
-            txtPregunta = new TextBox();
+            lblVolverInicio = new Label();
             lblRespuesta = new Label();
             txtRespuesta = new TextBox();
-            lblVolverInicio = new Label();
+            lblTitulo = new Label();
+            btnAceptar = new Button();
+            lblPregunta = new Label();
+            txtPregunta = new TextBox();
+            lblDescripcion = new Label();
             panelLogin.SuspendLayout();
             SuspendLayout();
             // 
@@ -56,6 +56,36 @@
             panelLogin.Name = "panelLogin";
             panelLogin.Size = new Size(463, 331);
             panelLogin.TabIndex = 3;
+            // 
+            // lblVolverInicio
+            // 
+            lblVolverInicio.AutoSize = true;
+            lblVolverInicio.Font = new Font("Segoe UI", 9F, FontStyle.Italic);
+            lblVolverInicio.ForeColor = Color.FromArgb(74, 81, 60);
+            lblVolverInicio.Location = new Point(24, 289);
+            lblVolverInicio.Name = "lblVolverInicio";
+            lblVolverInicio.Size = new Size(147, 20);
+            lblVolverInicio.TabIndex = 7;
+            lblVolverInicio.Text = "Volver al inicio sesion";
+            // 
+            // lblRespuesta
+            // 
+            lblRespuesta.AutoSize = true;
+            lblRespuesta.Location = new Point(26, 181);
+            lblRespuesta.Name = "lblRespuesta";
+            lblRespuesta.Size = new Size(79, 20);
+            lblRespuesta.TabIndex = 6;
+            lblRespuesta.Text = "Respuesta:";
+            // 
+            // txtRespuesta
+            // 
+            txtRespuesta.BorderStyle = BorderStyle.FixedSingle;
+            txtRespuesta.ForeColor = SystemColors.WindowFrame;
+            txtRespuesta.Location = new Point(26, 204);
+            txtRespuesta.Name = "txtRespuesta";
+            txtRespuesta.Size = new Size(409, 27);
+            txtRespuesta.TabIndex = 5;
+            txtRespuesta.UseSystemPasswordChar = true;
             // 
             // lblTitulo
             // 
@@ -81,18 +111,6 @@
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = false;
             // 
-            // lblDescripcion
-            // 
-            lblDescripcion.AutoSize = true;
-            lblDescripcion.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblDescripcion.ForeColor = SystemColors.ControlDark;
-            lblDescripcion.Location = new Point(24, 56);
-            lblDescripcion.Name = "lblDescripcion";
-            lblDescripcion.Size = new Size(416, 20);
-            lblDescripcion.TabIndex = 2;
-            lblDescripcion.Text = "Contesta la pregunta de seguridad para recuperar tu contraseña";
-            lblDescripcion.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // lblPregunta
             // 
             lblPregunta.AutoSize = true;
@@ -113,35 +131,17 @@
             txtPregunta.TabIndex = 2;
             txtPregunta.UseSystemPasswordChar = true;
             // 
-            // lblRespuesta
+            // lblDescripcion
             // 
-            lblRespuesta.AutoSize = true;
-            lblRespuesta.Location = new Point(26, 181);
-            lblRespuesta.Name = "lblRespuesta";
-            lblRespuesta.Size = new Size(79, 20);
-            lblRespuesta.TabIndex = 6;
-            lblRespuesta.Text = "Respuesta:";
-            // 
-            // txtRespuesta
-            // 
-            txtRespuesta.BorderStyle = BorderStyle.FixedSingle;
-            txtRespuesta.ForeColor = SystemColors.WindowFrame;
-            txtRespuesta.Location = new Point(26, 204);
-            txtRespuesta.Name = "txtRespuesta";
-            txtRespuesta.Size = new Size(409, 27);
-            txtRespuesta.TabIndex = 5;
-            txtRespuesta.UseSystemPasswordChar = true;
-            // 
-            // lblVolverInicio
-            // 
-            lblVolverInicio.AutoSize = true;
-            lblVolverInicio.Font = new Font("Segoe UI", 9F, FontStyle.Italic);
-            lblVolverInicio.ForeColor = Color.FromArgb(74, 81, 60);
-            lblVolverInicio.Location = new Point(24, 289);
-            lblVolverInicio.Name = "lblVolverInicio";
-            lblVolverInicio.Size = new Size(147, 20);
-            lblVolverInicio.TabIndex = 7;
-            lblVolverInicio.Text = "Volver al inicio sesion";
+            lblDescripcion.AutoSize = true;
+            lblDescripcion.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            lblDescripcion.ForeColor = SystemColors.ControlDark;
+            lblDescripcion.Location = new Point(24, 56);
+            lblDescripcion.Name = "lblDescripcion";
+            lblDescripcion.Size = new Size(416, 20);
+            lblDescripcion.TabIndex = 2;
+            lblDescripcion.Text = "Contesta la pregunta de seguridad para recuperar tu contraseña";
+            lblDescripcion.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FormVerificacionUser
             // 
@@ -150,6 +150,7 @@
             ClientSize = new Size(800, 373);
             Controls.Add(panelLogin);
             Name = "FormVerificacionUser";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Pregunta de seguridad";
             panelLogin.ResumeLayout(false);
             panelLogin.PerformLayout();

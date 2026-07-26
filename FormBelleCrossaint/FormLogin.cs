@@ -14,25 +14,6 @@ namespace FormBelleCrossaint
         {
             btnLogin.Enabled = !string.IsNullOrWhiteSpace(txtUsuario.Text) && !string.IsNullOrWhiteSpace(txtContrasena.Text);
         }
-        // VISIBILIDAD DE CONTRASEÑA
-        private void pVisible_Click(object sender, EventArgs e)
-        {
-            txtContrasena.UseSystemPasswordChar = !txtContrasena.UseSystemPasswordChar;
-            if (txtContrasena.UseSystemPasswordChar)
-            {
-                pVisible.Image = Image.FromFile("C:\\Users\\AnaAl\\source\\repos\\BelleCrossaint\\imagenes\\Invisible.png");
-            }
-            else
-            {
-                pVisible.Image = Image.FromFile("C:\\Users\\AnaAl\\source\\repos\\BelleCrossaint\\imagenes\\Eye open.png");
-            }
-        }
-
-        private void FormLogin_Load(object sender, EventArgs e)
-        {
-
-        }
-
 
         // CREAR CUENTA FORMULARIO
         private void lblCrearCuenta_Click(object sender, EventArgs e)
@@ -81,6 +62,20 @@ namespace FormBelleCrossaint
             this.Hide();
             formCorreoRecuperacion.ShowDialog();
             this.Show();
+        }
+
+        // VISIBILIDAD DE CONTRASEÑA
+        private void pVisibleC_Click(object sender, EventArgs e)
+        {
+            txtContrasena.UseSystemPasswordChar = !txtContrasena.UseSystemPasswordChar;
+            if (txtContrasena.UseSystemPasswordChar)
+            {
+                pVisibleC.Image = Image.FromFile("C:\\Users\\AnaAl\\source\\repos\\Project-Belle-Crossaint\\imagenes\\Invisible.png");
+            }
+            else
+            {
+                pVisibleC.Image = Image.FromFile("C:\\Users\\AnaAl\\source\\repos\\Project-Belle-Crossaint\\imagenes\\Eye open.png");
+            }
         }
     }
 }

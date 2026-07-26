@@ -1,4 +1,5 @@
-﻿using System;
+﻿using mis_clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ namespace FormBelleCrossaint
 {
     public partial class FormVerificacionUser : Form
     {
-        public FormVerificacionUser()
+        public FormVerificacionUser(string correo)
         {
             InitializeComponent();
         }

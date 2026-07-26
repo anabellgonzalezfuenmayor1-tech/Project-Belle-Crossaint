@@ -69,7 +69,7 @@
             pVisibleC.SizeMode = PictureBoxSizeMode.StretchImage;
             pVisibleC.TabIndex = 2;
             pVisibleC.TabStop = false;
-            pVisibleC.Click += pVisibleC_Click;
+            pVisibleC.Click += pVisibleC_Click_1;
             // 
             // lblTitulo
             // 
