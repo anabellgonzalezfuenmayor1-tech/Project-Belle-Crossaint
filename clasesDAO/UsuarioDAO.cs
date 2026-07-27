@@ -48,6 +48,7 @@ namespace clasesDAO
             }
             return listaUsuario;
         }
+        //CREAR UN USUARIO, RECIBIENDO UN OBJETO USUARIO, ENCRIPTANDO LA CONTRASEÑA Y LA RESPUESTA DE SEGURIDAD ANTES DE GUARDARLA EN LA BASE DE DATOS
         public void CrearUsuario(Usuario usuario)
         {
             try
@@ -62,7 +63,6 @@ namespace clasesDAO
                         idPregunta = item.Id;
                     }
                 }
-                // obtener el id del metodo de entrega
 
 
                 using (SqlConnection connection = new SqlConnection(CadenaConexion))
@@ -72,12 +72,12 @@ namespace clasesDAO
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.CommandType = System.Data.CommandType.StoredProcedure;
-                        //encriptar la contraseña antes de guardarla en la base de datos
+                        //ENCRIPTAR LA CONTRASEÑA ANTES DE GUARDARLA EN LA BASE DE DATOS
                         usuario.Contrasena = BCrypt.Net.BCrypt.HashPassword(usuario.Contrasena);
-                        // encriptar la respuesta de seguridad antes de guardarla en la base de datos
+                        //ENCRIPTAR LA RESPUESTA DE SEGURIDAD ANTES DE GUARDARLA EN LA BASE DE DATOS
                         usuario.RespuestaSeguridad = BCrypt.Net.BCrypt.HashPassword(usuario.RespuestaSeguridad);
 
-                        // agregar los parámetros a la consulta
+                        // AGREGAR PARAMETROS A LA CONSULTA SQL PARA CREAR EL USUARIO
                         command.Parameters.AddWithValue("@idPregunta", idPregunta);
                         command.Parameters.AddWithValue("@respuestaSeguridad", usuario.RespuestaSeguridad);
                         command.Parameters.AddWithValue("@nombre", usuario.Nombre);
@@ -146,7 +146,7 @@ namespace clasesDAO
                 {
                     if (c.Correo == correo)
                     {
-                        // comparar la contraseña encriptada con la contraseña ingresada
+                        // COMPARAR LA CONTRASEÑA ENCRIPTADA CON LA CONTRASEÑA INGRESADA, USANDO LA LIBRERIA BCRYPT
                         if (BCrypt.Net.BCrypt.Verify(contrasena, c.Contrasena))
                         {
                             return true;
@@ -177,9 +177,9 @@ namespace clasesDAO
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.CommandType = System.Data.CommandType.Text;
-                        // encriptar la nueva contraseña antes de guardarla en la base de datos
+                        // ENCRIPTAR LA NUEVA CONTRASEÑA ANTES DE GUARDARLA EN LA BASE DE DATOS
                         nuevaContrasena = BCrypt.Net.BCrypt.HashPassword(nuevaContrasena);
-                        // agregar los parámetros a la consulta
+                        // ACTUALIZAR REGISTRO EN LA BASE DE DATOS
                         command.Parameters.AddWithValue("@correo", correo);
                         command.Parameters.AddWithValue("@nuevaContrasena", nuevaContrasena);
                         command.ExecuteNonQuery();
