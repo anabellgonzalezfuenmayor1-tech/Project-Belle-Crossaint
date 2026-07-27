@@ -24,6 +24,12 @@ namespace FormBelleCrossaint
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(txtCorreo.Text))
+            {
+                lblNoExiste.Text = "Ingrese un correo electrónico";
+                lblNoExiste.Visible = true;
+                return;
+            }
             if (usuarioDAO.correoExistente(txtCorreo.Text.ToLower()))
             {
                 FormVerificacionUser formVerificacionUser = new FormVerificacionUser(txtCorreo.Text.ToLower());
@@ -34,9 +40,15 @@ namespace FormBelleCrossaint
             }
             else
             {
-                MessageBox.Show("Correo electrónico no registrado");
+                lblNoExiste.Visible = true;
             }
 
+        }
+
+        private void txtCorreo_TextChanged(object sender, EventArgs e)
+        {
+            lblNoExiste.Visible = false;
+            lblNoExiste.Text = "Correo electrónico no registrado";
         }
     }
 }

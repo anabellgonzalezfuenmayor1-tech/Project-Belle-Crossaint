@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panelLogin = new Panel();
+            lblNoExiste = new Label();
             lblVolverlInicio = new Label();
             lblTitulo = new Label();
             btnAceptar = new Button();
@@ -42,6 +43,7 @@
             // 
             panelLogin.BackColor = Color.WhiteSmoke;
             panelLogin.BorderStyle = BorderStyle.FixedSingle;
+            panelLogin.Controls.Add(lblNoExiste);
             panelLogin.Controls.Add(lblVolverlInicio);
             panelLogin.Controls.Add(lblTitulo);
             panelLogin.Controls.Add(btnAceptar);
@@ -52,6 +54,18 @@
             panelLogin.Name = "panelLogin";
             panelLogin.Size = new Size(409, 290);
             panelLogin.TabIndex = 2;
+            // 
+            // lblNoExiste
+            // 
+            lblNoExiste.AutoSize = true;
+            lblNoExiste.ForeColor = Color.FromArgb(143, 55, 48);
+            lblNoExiste.Location = new Point(29, 167);
+            lblNoExiste.Name = "lblNoExiste";
+            lblNoExiste.Size = new Size(225, 20);
+            lblNoExiste.TabIndex = 3;
+            lblNoExiste.Text = "Correo electrónico no registrado";
+            lblNoExiste.TextAlign = ContentAlignment.MiddleLeft;
+            lblNoExiste.Visible = false;
             // 
             // lblVolverlInicio
             // 
@@ -107,6 +121,7 @@
             txtCorreo.Name = "txtCorreo";
             txtCorreo.Size = new Size(342, 27);
             txtCorreo.TabIndex = 2;
+            txtCorreo.TextChanged += txtCorreo_TextChanged;
             // 
             // lblDescripcion
             // 
@@ -144,5 +159,6 @@
         private TextBox txtCorreo;
         private Label lblDescripcion;
         private Label lblVolverlInicio;
+        private Label lblNoExiste;
     }
 }

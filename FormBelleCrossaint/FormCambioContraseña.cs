@@ -22,6 +22,7 @@ namespace FormBelleCrossaint
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+
             if (txtContrasenaNueva.Text == txtVerificacionContraseña.Text)
             {
                 usuarioDAO.ActualizarContrasena(usuario.Correo, txtContrasenaNueva.Text);
@@ -30,7 +31,7 @@ namespace FormBelleCrossaint
             }
             else
             {
-                MessageBox.Show("Las contraseñas no coinciden");
+                lblNoCoinciden.Visible = true;
             }
         }
 
@@ -58,6 +59,16 @@ namespace FormBelleCrossaint
             {
                 pictureBox1.Image = Image.FromFile("C:\\Users\\AnaAl\\source\\repos\\Project-Belle-Crossaint\\imagenes\\Eye open.png");
             }
+        }
+
+        private void txtContrasenaNueva_TextChanged(object sender, EventArgs e)
+        {
+            lblNoCoinciden.Visible = false;
+        }
+
+        private void txtVerificacionContraseña_TextChanged(object sender, EventArgs e)
+        {
+            lblNoCoinciden.Visible = false;
         }
     }
 }

@@ -9,11 +9,6 @@ namespace FormBelleCrossaint
         {
             InitializeComponent();
         }
-        //VALIDACION DE CAMPOS VACIOS
-        private void ValidarBoton()
-        {
-            btnLogin.Enabled = !string.IsNullOrWhiteSpace(txtUsuario.Text) && !string.IsNullOrWhiteSpace(txtContrasena.Text);
-        }
 
         // CREAR CUENTA FORMULARIO
         private void lblCrearCuenta_Click(object sender, EventArgs e)
@@ -28,6 +23,11 @@ namespace FormBelleCrossaint
         // INICIAR SESION
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            if(txtUsuario.Text == "" && txtContrasena.Text == "")
+            {
+                MessageBox.Show("Por favor, complete los campos");
+                return;
+            }
             if (usuarioDAO.correoExistente(txtUsuario.Text.ToLower()))
             {
                 if (usuarioDAO.validarContrasena(txtUsuario.Text.ToLower(), txtContrasena.Text))
@@ -36,24 +36,25 @@ namespace FormBelleCrossaint
                 }
                 else
                 {
-                    MessageBox.Show("Contraseña o correo electrónico incorrecto");
+                    lblIncorrecto.Visible = true;
                 }
             }
             else
             {
-                MessageBox.Show("Correo electrónico no registrado");
+                lblNoExiste.Visible = true;
             }
         }
 
         // VALIDACION INSTANCIA DE CAMPO DE TEXTO
         private void txtUsuario_TextChanged(object sender, EventArgs e)
         {
-            ValidarBoton();
+            lblIncorrecto.Visible = false;
+            lblNoExiste.Visible = false;
         }
 
         private void txtContrasena_TextChanged(object sender, EventArgs e)
         {
-            ValidarBoton();
+            lblIncorrecto.Visible = false;
         }
 
         private void lblOlvidarContrasena_Click(object sender, EventArgs e)

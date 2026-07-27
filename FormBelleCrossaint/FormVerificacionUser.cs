@@ -40,7 +40,7 @@ namespace FormBelleCrossaint
             }
             else
             {
-                MessageBox.Show("Respuesta incorrecta");
+                lblIncorrecta.Visible = true;
             }
 
         }
@@ -48,6 +48,11 @@ namespace FormBelleCrossaint
         private void lblVolverInicio_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtRespuesta_TextChanged(object sender, EventArgs e)
+        {
+            lblIncorrecta.Visible = false;
         }
     }
 }

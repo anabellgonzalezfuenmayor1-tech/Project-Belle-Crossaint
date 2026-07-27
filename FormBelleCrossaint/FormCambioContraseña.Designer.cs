@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCambioContraseña));
             panelLogin = new Panel();
+            lblNoCoinciden = new Label();
             pictureBox1 = new PictureBox();
             label1 = new Label();
             txtVerificacionContraseña = new TextBox();
@@ -47,6 +48,7 @@
             // 
             panelLogin.BackColor = Color.WhiteSmoke;
             panelLogin.BorderStyle = BorderStyle.FixedSingle;
+            panelLogin.Controls.Add(lblNoCoinciden);
             panelLogin.Controls.Add(pictureBox1);
             panelLogin.Controls.Add(label1);
             panelLogin.Controls.Add(txtVerificacionContraseña);
@@ -59,6 +61,17 @@
             panelLogin.Name = "panelLogin";
             panelLogin.Size = new Size(409, 295);
             panelLogin.TabIndex = 3;
+            // 
+            // lblNoCoinciden
+            // 
+            lblNoCoinciden.AutoSize = true;
+            lblNoCoinciden.ForeColor = Color.FromArgb(143, 55, 48);
+            lblNoCoinciden.Location = new Point(43, 209);
+            lblNoCoinciden.Name = "lblNoCoinciden";
+            lblNoCoinciden.Size = new Size(201, 20);
+            lblNoCoinciden.TabIndex = 4;
+            lblNoCoinciden.Text = "Las contraseñas no coinciden";
+            lblNoCoinciden.Visible = false;
             // 
             // pictureBox1
             // 
@@ -89,6 +102,7 @@
             txtVerificacionContraseña.Size = new Size(292, 27);
             txtVerificacionContraseña.TabIndex = 11;
             txtVerificacionContraseña.UseSystemPasswordChar = true;
+            txtVerificacionContraseña.TextChanged += txtVerificacionContraseña_TextChanged;
             // 
             // pVisible
             // 
@@ -119,6 +133,7 @@
             txtContrasenaNueva.Size = new Size(292, 27);
             txtContrasenaNueva.TabIndex = 8;
             txtContrasenaNueva.UseSystemPasswordChar = true;
+            txtContrasenaNueva.TextChanged += txtContrasenaNueva_TextChanged;
             // 
             // lblTitulo
             // 
@@ -137,7 +152,7 @@
             // 
             btnAceptar.BackColor = Color.FromArgb(145, 128, 70);
             btnAceptar.ForeColor = Color.White;
-            btnAceptar.Location = new Point(43, 233);
+            btnAceptar.Location = new Point(42, 237);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(333, 34);
             btnAceptar.TabIndex = 3;
@@ -172,5 +187,6 @@
         private PictureBox pVisible;
         private Label lblContrasena;
         private TextBox txtContrasenaNueva;
+        private Label lblNoCoinciden;
     }
 }

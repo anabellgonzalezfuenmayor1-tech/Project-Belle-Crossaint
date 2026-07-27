@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             pImagen = new PictureBox();
             panelLogin = new Panel();
+            lblNoExiste = new Label();
+            lblIncorrecto = new Label();
+            pVisibleC = new PictureBox();
             pLogo = new PictureBox();
             lblTitulo = new Label();
             lblCrearCuenta = new Label();
@@ -40,11 +43,10 @@
             txtContrasena = new TextBox();
             lblUsuario = new Label();
             txtUsuario = new TextBox();
-            pVisibleC = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pImagen).BeginInit();
             panelLogin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pVisibleC).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pLogo).BeginInit();
             SuspendLayout();
             // 
             // pImagen
@@ -62,6 +64,8 @@
             // 
             panelLogin.BackColor = Color.FromArgb(248, 243, 238);
             panelLogin.BorderStyle = BorderStyle.FixedSingle;
+            panelLogin.Controls.Add(lblNoExiste);
+            panelLogin.Controls.Add(lblIncorrecto);
             panelLogin.Controls.Add(pVisibleC);
             panelLogin.Controls.Add(pLogo);
             panelLogin.Controls.Add(lblTitulo);
@@ -76,6 +80,39 @@
             panelLogin.Name = "panelLogin";
             panelLogin.Size = new Size(409, 485);
             panelLogin.TabIndex = 1;
+            // 
+            // lblNoExiste
+            // 
+            lblNoExiste.AutoSize = true;
+            lblNoExiste.ForeColor = Color.FromArgb(143, 55, 48);
+            lblNoExiste.Location = new Point(230, 197);
+            lblNoExiste.Name = "lblNoExiste";
+            lblNoExiste.Size = new Size(143, 20);
+            lblNoExiste.TabIndex = 9;
+            lblNoExiste.Text = "Usuario no existente";
+            lblNoExiste.Visible = false;
+            // 
+            // lblIncorrecto
+            // 
+            lblIncorrecto.AutoSize = true;
+            lblIncorrecto.ForeColor = Color.FromArgb(143, 55, 48);
+            lblIncorrecto.Location = new Point(40, 328);
+            lblIncorrecto.Name = "lblIncorrecto";
+            lblIncorrecto.Size = new Size(219, 20);
+            lblIncorrecto.TabIndex = 2;
+            lblIncorrecto.Text = "Contraseña o usuario incorrecto";
+            lblIncorrecto.Visible = false;
+            // 
+            // pVisibleC
+            // 
+            pVisibleC.Image = (Image)resources.GetObject("pVisibleC.Image");
+            pVisibleC.Location = new Point(346, 298);
+            pVisibleC.Name = "pVisibleC";
+            pVisibleC.Size = new Size(27, 27);
+            pVisibleC.SizeMode = PictureBoxSizeMode.StretchImage;
+            pVisibleC.TabIndex = 8;
+            pVisibleC.TabStop = false;
+            pVisibleC.Click += pVisibleC_Click;
             // 
             // pLogo
             // 
@@ -126,7 +163,6 @@
             // btnLogin
             // 
             btnLogin.BackColor = Color.FromArgb(158, 139, 76);
-            btnLogin.Enabled = false;
             btnLogin.ForeColor = Color.White;
             btnLogin.Location = new Point(40, 359);
             btnLogin.Name = "btnLogin";
@@ -175,17 +211,6 @@
             txtUsuario.TabIndex = 1;
             txtUsuario.TextChanged += txtUsuario_TextChanged;
             // 
-            // pVisibleC
-            // 
-            pVisibleC.Image = (Image)resources.GetObject("pVisibleC.Image");
-            pVisibleC.Location = new Point(346, 298);
-            pVisibleC.Name = "pVisibleC";
-            pVisibleC.Size = new Size(27, 27);
-            pVisibleC.SizeMode = PictureBoxSizeMode.StretchImage;
-            pVisibleC.TabIndex = 8;
-            pVisibleC.TabStop = false;
-            pVisibleC.Click += pVisibleC_Click;
-            // 
             // FormLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -200,8 +225,8 @@
             ((System.ComponentModel.ISupportInitialize)pImagen).EndInit();
             panelLogin.ResumeLayout(false);
             panelLogin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)pVisibleC).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pLogo).EndInit();
             ResumeLayout(false);
         }
 
@@ -219,5 +244,7 @@
         private Label lblTitulo;
         private PictureBox pLogo;
         private PictureBox pVisibleC;
+        private Label lblIncorrecto;
+        private Label lblNoExiste;
     }
 }

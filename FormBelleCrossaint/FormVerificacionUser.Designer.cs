@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panelLogin = new Panel();
+            lblIncorrecta = new Label();
             lblVolverInicio = new Label();
             lblRespuesta = new Label();
             txtRespuesta = new TextBox();
@@ -44,6 +45,7 @@
             // 
             panelLogin.BackColor = Color.WhiteSmoke;
             panelLogin.BorderStyle = BorderStyle.FixedSingle;
+            panelLogin.Controls.Add(lblIncorrecta);
             panelLogin.Controls.Add(lblVolverInicio);
             panelLogin.Controls.Add(lblRespuesta);
             panelLogin.Controls.Add(txtRespuesta);
@@ -56,6 +58,17 @@
             panelLogin.Name = "panelLogin";
             panelLogin.Size = new Size(463, 331);
             panelLogin.TabIndex = 3;
+            // 
+            // lblIncorrecta
+            // 
+            lblIncorrecta.AutoSize = true;
+            lblIncorrecta.ForeColor = Color.FromArgb(143, 55, 48);
+            lblIncorrecta.Location = new Point(26, 234);
+            lblIncorrecta.Name = "lblIncorrecta";
+            lblIncorrecta.Size = new Size(147, 20);
+            lblIncorrecta.TabIndex = 8;
+            lblIncorrecta.Text = "Respuesta Incorrecto";
+            lblIncorrecta.Visible = false;
             // 
             // lblVolverInicio
             // 
@@ -86,6 +99,7 @@
             txtRespuesta.Name = "txtRespuesta";
             txtRespuesta.Size = new Size(409, 27);
             txtRespuesta.TabIndex = 5;
+            txtRespuesta.TextChanged += txtRespuesta_TextChanged;
             // 
             // lblTitulo
             // 
@@ -170,5 +184,6 @@
         private Label lblPregunta;
         private TextBox txtPregunta;
         private Label lblVolverInicio;
+        private Label lblIncorrecta;
     }
 }
