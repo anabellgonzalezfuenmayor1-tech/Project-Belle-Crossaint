@@ -67,6 +67,7 @@
             lblVolverInicio.Size = new Size(147, 20);
             lblVolverInicio.TabIndex = 7;
             lblVolverInicio.Text = "Volver al inicio sesion";
+            lblVolverInicio.Click += lblVolverInicio_Click;
             // 
             // lblRespuesta
             // 
@@ -85,7 +86,6 @@
             txtRespuesta.Name = "txtRespuesta";
             txtRespuesta.Size = new Size(409, 27);
             txtRespuesta.TabIndex = 5;
-            txtRespuesta.UseSystemPasswordChar = true;
             // 
             // lblTitulo
             // 
@@ -110,6 +110,7 @@
             btnAceptar.TabIndex = 3;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = false;
+            btnAceptar.Click += btnAceptar_Click;
             // 
             // lblPregunta
             // 
@@ -123,13 +124,14 @@
             // txtPregunta
             // 
             txtPregunta.BorderStyle = BorderStyle.FixedSingle;
+            txtPregunta.Enabled = false;
             txtPregunta.ForeColor = SystemColors.WindowFrame;
             txtPregunta.Location = new Point(26, 128);
             txtPregunta.Name = "txtPregunta";
             txtPregunta.ReadOnly = true;
             txtPregunta.Size = new Size(409, 27);
             txtPregunta.TabIndex = 2;
-            txtPregunta.UseSystemPasswordChar = true;
+            txtPregunta.TextAlign = HorizontalAlignment.Center;
             // 
             // lblDescripcion
             // 

@@ -30,6 +30,7 @@ namespace FormBelleCrossaint
                 this.Visible = false;
                 formVerificacionUser.ShowDialog();
                 this.Visible = true;
+                this.Close();
             }
             else
             {

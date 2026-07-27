@@ -6,7 +6,7 @@ namespace clasesDAO
 {
     public class UsuarioDAO : Conexion
     {
-   
+
         public List<Usuario> ObtenerListUsuario()
         {
             List<Usuario> listaUsuario = new List<Usuario>();
@@ -41,7 +41,7 @@ namespace clasesDAO
                     }
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show("Error al obtener la lista de usuarios: " + ex.Message);
 
@@ -70,7 +70,7 @@ namespace clasesDAO
                     connection.Open();
                     string query = "sp_CrearUsuario";
                     using (SqlCommand command = new SqlCommand(query, connection))
-                    {   
+                    {
                         command.CommandType = System.Data.CommandType.StoredProcedure;
                         //encriptar la contraseña antes de guardarla en la base de datos
                         usuario.Contrasena = BCrypt.Net.BCrypt.HashPassword(usuario.Contrasena);
@@ -117,6 +117,26 @@ namespace clasesDAO
                 return false;
             }
         }
+        // OBTENER UN USUARIO POR SU CORREO, SI EXISTE RETORNAR EL USUARIO, SI NO EXISTE RETORNAR NULL
+        public Usuario ObtenerUsuarioPorCorreo(string correo)
+        {
+            try
+            {
+                foreach (var c in ObtenerListUsuario())
+                {
+                    if (c.Correo == correo)
+                    {
+                        return c;
+                    }
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener el usuario: " + ex.Message);
+                return null;
+            }
+        }
         // VALIDAR QUE LA CONTRASEÑA PERTENEZCA AL CORREO, SI PERTENECE RETORNAR TRUE, SI NO PERTENECE RETORNAR FALSE
         public bool validarContrasena(string correo, string contrasena)
         {
@@ -143,6 +163,32 @@ namespace clasesDAO
             {
                 MessageBox.Show("Error al validar la contraseña: " + ex.Message);
                 return false;
+            }
+        }
+        // ACTUALIZAR LA CONTRASEÑA DE UN USUARIO, RECIBIENDO EL CORREO Y LA NUEVA CONTRASEÑA, ENCRIPTANDO LA NUEVA CONTRASEÑA ANTES DE GUARDARLA EN LA BASE DE DATOS
+        public void ActualizarContrasena(string correo, string nuevaContrasena)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(CadenaConexion))
+                {
+                    connection.Open();
+                    string query = "UPDATE Usuario SET contrasena = @nuevaContrasena WHERE email = @correo";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.CommandType = System.Data.CommandType.Text;
+                        // encriptar la nueva contraseña antes de guardarla en la base de datos
+                        nuevaContrasena = BCrypt.Net.BCrypt.HashPassword(nuevaContrasena);
+                        // agregar los parámetros a la consulta
+                        command.Parameters.AddWithValue("@correo", correo);
+                        command.Parameters.AddWithValue("@nuevaContrasena", nuevaContrasena);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar la contraseña: " + ex.Message);
             }
         }
     }

@@ -141,6 +141,7 @@
             btnAceptar.TabIndex = 3;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = false;
+            btnAceptar.Click += btnAceptar_Click;
             // 
             // FormCambioContraseña
             // 
@@ -149,6 +150,7 @@
             ClientSize = new Size(800, 353);
             Controls.Add(panelLogin);
             Name = "FormCambioContraseña";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Cambio de contraseña";
             panelLogin.ResumeLayout(false);
             panelLogin.PerformLayout();

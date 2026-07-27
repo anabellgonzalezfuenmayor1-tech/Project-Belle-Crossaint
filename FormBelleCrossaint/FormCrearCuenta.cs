@@ -284,15 +284,16 @@ namespace FormBelleCrossaint
             txtConfirmarContrasena.UseSystemPasswordChar = !txtConfirmarContrasena.UseSystemPasswordChar;
             if (txtConfirmarContrasena.UseSystemPasswordChar)
             {
-                pVisibleC.Image = Image.FromFile("C:\\Users\\AnaAl\\source\\repos\\Project-Belle-Crossaint\\imagenes\\Invisible.png");
+                pVisibleCC.Image = Image.FromFile("C:\\Users\\AnaAl\\source\\repos\\Project-Belle-Crossaint\\imagenes\\Invisible.png");
             }
             else
             {
-                pVisibleC.Image = Image.FromFile("C:\\Users\\AnaAl\\source\\repos\\Project-Belle-Crossaint\\imagenes\\Eye open.png");
+                pVisibleCC.Image = Image.FromFile("C:\\Users\\AnaAl\\source\\repos\\Project-Belle-Crossaint\\imagenes\\Eye open.png");
             }
         }
 
-        private void pVisibleC_Click_1(object sender, EventArgs e)
+
+        private void pVisibleC_Click(object sender, EventArgs e)
         {
             txtContrasena.UseSystemPasswordChar = !txtContrasena.UseSystemPasswordChar;
             if (txtContrasena.UseSystemPasswordChar)
