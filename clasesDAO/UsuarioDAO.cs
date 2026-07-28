@@ -191,6 +191,29 @@ namespace clasesDAO
                 MessageBox.Show("Error al actualizar la contraseña: " + ex.Message);
             }
         }
+        //ACTUALIZAR FOTO DE PERFIL DE UN USUARIO, RECIBIENDO EL CORREO Y LA NUEVA RUTA DE LA FOTO DE PERFIL
+        public void ActualizarFotoPerfil(int id, string nuevaRuta)
+        {
+            try
+            {
+                using(SqlConnection connection = new SqlConnection(CadenaConexion))
+                {
+                    connection.Open();
+                    string query = "UPDATE Usuario SET path_perfil = @nuevaRuta WHERE id = @id";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.CommandType = System.Data.CommandType.Text;
+                        command.Parameters.AddWithValue("@id", id);
+                        command.Parameters.AddWithValue("@nuevaRuta", nuevaRuta);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar la foto de perfil: " + ex.Message);
+            }
+        }
         // ACTUALIZAR LOS DATOS DE UN USUARIO, RECIBIENDO EL CORREO Y EL OBJETO USUARIO CON LOS NUEVOS DATOS
         public void ActualizarUsuario(
             string correo, string nombre, string apellido, string numero,

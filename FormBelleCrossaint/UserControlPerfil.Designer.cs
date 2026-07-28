@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlPerfil));
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             CboxRecogida = new RadioButton();
             lblEntrega = new Label();
@@ -43,7 +44,9 @@
             CBoxSubCorreo = new CheckBox();
             btnEdit = new Button();
             pPerfil = new PictureBox();
+            pEditar = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pPerfil).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pEditar).BeginInit();
             SuspendLayout();
             // 
             // CboxRecogida
@@ -170,16 +173,30 @@
             // 
             // pPerfil
             // 
-            pPerfil.Location = new Point(193, 25);
+            pPerfil.Image = (Image)resources.GetObject("pPerfil.Image");
+            pPerfil.Location = new Point(219, 25);
             pPerfil.Name = "pPerfil";
-            pPerfil.Size = new Size(192, 138);
+            pPerfil.Size = new Size(149, 138);
+            pPerfil.SizeMode = PictureBoxSizeMode.StretchImage;
             pPerfil.TabIndex = 27;
             pPerfil.TabStop = false;
+            // 
+            // pEditar
+            // 
+            pEditar.Image = (Image)resources.GetObject("pEditar.Image");
+            pEditar.Location = new Point(342, 130);
+            pEditar.Name = "pEditar";
+            pEditar.Size = new Size(50, 48);
+            pEditar.SizeMode = PictureBoxSizeMode.StretchImage;
+            pEditar.TabIndex = 28;
+            pEditar.TabStop = false;
+            pEditar.Click += pEditar_Click;
             // 
             // UserControlPerfil
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(pEditar);
             Controls.Add(pPerfil);
             Controls.Add(CboxRecogida);
             Controls.Add(lblEntrega);
@@ -198,6 +215,7 @@
             Size = new Size(587, 648);
             Load += UserControlPerfil_Load;
             ((System.ComponentModel.ISupportInitialize)pPerfil).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pEditar).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -219,5 +237,6 @@
         private CheckBox CBoxSubCorreo;
         private Button btnEdit;
         private PictureBox pPerfil;
+        private PictureBox pEditar;
     }
 }

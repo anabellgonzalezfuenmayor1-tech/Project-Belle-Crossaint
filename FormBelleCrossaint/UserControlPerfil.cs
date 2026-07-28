@@ -42,7 +42,7 @@ namespace FormBelleCrossaint
                     MessageBox.Show("Por favor, complete todos los campos antes de guardar los cambios.", "Campos incompletos");
                     return;
                 }
-                if(CBoxEntrega.Checked)
+                if (CBoxEntrega.Checked)
                 {
                     metodoEntrega = 2;
                 }
@@ -56,7 +56,7 @@ namespace FormBelleCrossaint
                     return;
                 }
                 btnEdit.Text = "Editar Perfil";
-                usuarioDAO.ActualizarUsuario(txtCorreo.Text, txtNombre.Text, txtApellido.Text,  txtNumero.Text, CBoxSubCorreo.Checked, metodoEntrega, usuario.Id);
+                usuarioDAO.ActualizarUsuario(txtCorreo.Text, txtNombre.Text, txtApellido.Text, txtNumero.Text, CBoxSubCorreo.Checked, metodoEntrega, usuario.Id);
             }
         }
         // cargar datos
@@ -67,7 +67,7 @@ namespace FormBelleCrossaint
             txtCorreo.Text = usuario.Correo;
             txtNumero.Text = usuario.NTelefono;
 
-            if(usuario.MetodoEntrega == "Entrega")
+            if (usuario.MetodoEntrega == "Entrega")
             {
                 CBoxEntrega.Checked = true;
                 CboxRecogida.Checked = false;
@@ -84,7 +84,6 @@ namespace FormBelleCrossaint
         {
             try
             {
-                MessageBox.Show(usuario.PathPerfil);
                 pPerfil.Image = Image.FromFile(usuario.PathPerfil);
             }
             catch (Exception ex)
@@ -96,6 +95,25 @@ namespace FormBelleCrossaint
         private void btnEdit_Click(object sender, EventArgs e)
         {
             habilitacionDatos();
+        }
+
+        private void pEditar_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string selectedFilePath = openFileDialog.FileName;
+                try
+                {
+                    pPerfil.Image = Image.FromFile(selectedFilePath);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar la imagen seleccionada: " + ex.Message);
+                }
+            }
         }
     }
 }

@@ -16,24 +16,36 @@ namespace FormBelleCrossaint
         {
             InitializeComponent();
             this.usuario = usuario;
-            cargarUserControl();
+            CargarUserControl();
         }
-        private void cargarUserControl()
+        private void CargarUserControl()
         {
             UserControlPerfil perfil = new UserControlPerfil(usuario);
             PanelContenido.Controls.Clear();
             perfil.Dock = DockStyle.Fill;
             PanelContenido.Controls.Add(perfil);
         }
+        private void CargarUserControlHistorial()
+        {
+            UserControlHistorial historial = new UserControlHistorial(usuario);
+            PanelContenido.Controls.Clear();
+            historial.Dock =DockStyle.Fill;
+            PanelContenido.Controls.Add(historial);
+        }
 
         private void btnPerfil_Click(object sender, EventArgs e)
         {
-            cargarUserControl();
+            CargarUserControl();
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnHistorialPedido_Click(object sender, EventArgs e)
+        {
+            CargarUserControlHistorial();
         }
     }
 }

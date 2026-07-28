@@ -80,6 +80,7 @@
             btnHistorialPedido.Text = "Historial Pedidos";
             btnHistorialPedido.TextAlign = ContentAlignment.MiddleLeft;
             btnHistorialPedido.UseVisualStyleBackColor = false;
+            btnHistorialPedido.Click += btnHistorialPedido_Click;
             // 
             // btnPerfil
             // 
