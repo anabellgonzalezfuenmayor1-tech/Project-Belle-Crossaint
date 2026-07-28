@@ -51,7 +51,7 @@
             PanelMenu.Dock = DockStyle.Left;
             PanelMenu.Location = new Point(0, 0);
             PanelMenu.Name = "PanelMenu";
-            PanelMenu.Size = new Size(250, 450);
+            PanelMenu.Size = new Size(250, 702);
             PanelMenu.TabIndex = 0;
             // 
             // btnCerrarSesion
@@ -66,6 +66,7 @@
             btnCerrarSesion.Text = "Cerrar Sesion";
             btnCerrarSesion.TextAlign = ContentAlignment.MiddleLeft;
             btnCerrarSesion.UseVisualStyleBackColor = false;
+            btnCerrarSesion.Click += btnCerrarSesion_Click;
             // 
             // btnHistorialPedido
             // 
@@ -121,17 +122,18 @@
             PanelContenido.Dock = DockStyle.Fill;
             PanelContenido.Location = new Point(250, 0);
             PanelContenido.Name = "PanelContenido";
-            PanelContenido.Size = new Size(550, 450);
+            PanelContenido.Size = new Size(556, 702);
             PanelContenido.TabIndex = 0;
             // 
             // FormPantallaPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(806, 702);
             Controls.Add(PanelContenido);
             Controls.Add(PanelMenu);
             Name = "FormPantallaPrincipal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Menu Principal";
             PanelMenu.ResumeLayout(false);
             PanelMenu.PerformLayout();

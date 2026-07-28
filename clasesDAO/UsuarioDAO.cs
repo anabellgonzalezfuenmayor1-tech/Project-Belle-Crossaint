@@ -6,7 +6,7 @@ namespace clasesDAO
 {
     public class UsuarioDAO : Conexion
     {
-
+        MetodoEntregaDAO metodoEntregaDAO = new MetodoEntregaDAO();
         public List<Usuario> ObtenerListUsuario()
         {
             List<Usuario> listaUsuario = new List<Usuario>();
@@ -189,6 +189,38 @@ namespace clasesDAO
             catch (Exception ex)
             {
                 MessageBox.Show("Error al actualizar la contraseña: " + ex.Message);
+            }
+        }
+        // ACTUALIZAR LOS DATOS DE UN USUARIO, RECIBIENDO EL CORREO Y EL OBJETO USUARIO CON LOS NUEVOS DATOS
+        public void ActualizarUsuario(
+            string correo, string nombre, string apellido, string numero,
+            bool subCorreo, int? metodoEntrega, int id
+            )
+        {
+            try
+            {
+
+                using (SqlConnection connection = new SqlConnection(CadenaConexion))
+                {
+                    connection.Open();
+                    string query = "UPDATE Usuario SET nombre = @nombre, apellido = @apellido, n_telefono = @numero, subcripcion_correo = @subCorreo, id_Metodo = @idMetodo WHERE id = @id";
+                    using (SqlCommand comando = new SqlCommand(query, connection))
+                    {
+                        comando.CommandType = System.Data.CommandType.Text;
+                        comando.Parameters.AddWithValue("@nombre", nombre);
+                        comando.Parameters.AddWithValue("@apellido", apellido);
+                        comando.Parameters.AddWithValue("@numero", numero);
+                        comando.Parameters.AddWithValue("@subCorreo", subCorreo);
+                        comando.Parameters.AddWithValue("@idMetodo", metodoEntrega);
+                        comando.Parameters.AddWithValue("@id", id);
+                        comando.ExecuteNonQuery();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar el usuario: " + ex.Message);
             }
         }
     }

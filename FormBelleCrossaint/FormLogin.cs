@@ -1,4 +1,5 @@
 using clasesDAO;
+using mis_clases;
 
 namespace FormBelleCrossaint
 {
@@ -33,6 +34,13 @@ namespace FormBelleCrossaint
                 if (usuarioDAO.validarContrasena(txtUsuario.Text.ToLower(), txtContrasena.Text))
                 {
                     MessageBox.Show("Bienvenido " + txtUsuario.Text);
+                    Usuario log = usuarioDAO.ObtenerUsuarioPorCorreo(txtUsuario.Text.ToLower());
+                    FormPantallaPrincipal formPantallaPrincipal = new FormPantallaPrincipal(log);
+                    this.Visible = false;
+                    formPantallaPrincipal.ShowDialog();
+                    txtContrasena.Text = string.Empty;
+                    txtUsuario.Text = string.Empty;
+                    this.Visible = true;
                 }
                 else
                 {

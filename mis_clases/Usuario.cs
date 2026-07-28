@@ -12,7 +12,7 @@
         private string n_telefono;
         private List<string>  lista_direcciones;
         private bool suscrito_correo;
-        private string path_perfil = "C:\\Users\\AnaAl\\source\\repos\\BelleCrossaint\\imagenes\\perfilDefault.png";
+        private string path_perfil = "imagenes/perfilDefault.png";
         private string metodo_entrega;
 
         public int Id

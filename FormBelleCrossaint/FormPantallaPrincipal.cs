@@ -1,4 +1,5 @@
-﻿using System;
+﻿using mis_clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,21 +11,29 @@ namespace FormBelleCrossaint
 {
     public partial class FormPantallaPrincipal : Form
     {
-        public FormPantallaPrincipal()
+        Usuario usuario;
+        public FormPantallaPrincipal(Usuario usuario)
         {
             InitializeComponent();
+            this.usuario = usuario;
+            cargarUserControl();
+        }
+        private void cargarUserControl()
+        {
+            UserControlPerfil perfil = new UserControlPerfil(usuario);
             PanelContenido.Controls.Clear();
-            UserControlPerfil perfil = new UserControlPerfil();
             perfil.Dock = DockStyle.Fill;
             PanelContenido.Controls.Add(perfil);
         }
 
         private void btnPerfil_Click(object sender, EventArgs e)
         {
-            PanelContenido.Controls.Clear();
-            UserControlPerfil perfil = new UserControlPerfil();
-            perfil.Dock = DockStyle.Fill;
-            PanelContenido.Controls.Add(perfil);
+            cargarUserControl();
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
